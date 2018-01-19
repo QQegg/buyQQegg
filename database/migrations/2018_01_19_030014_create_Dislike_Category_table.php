@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDislikeCategortyTable extends Migration
+class CreateDislikeCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDislikeCategortyTable extends Migration
      */
     public function up()
     {
-        Schema::create('Dislike_Categorty', function (Blueprint $table) {
+        Schema::create('Dislike_Category', function (Blueprint $table) {
             $table->increments('dislike_id');
             $table->integer('id'); //會員M_id
             $table->integer('Cate_id');
@@ -28,6 +28,6 @@ class CreateDislikeCategortyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Dislike_Categorty');
+        Schema::dropIfExists('Dislike_Category');
     }
 }
