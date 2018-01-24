@@ -33,12 +33,12 @@
             <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                 <nav class="cl-effect-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="codes.html">Short Codes</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li class="active"><a href="gallery.html">Photo Gallery</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="{{ route('posts.index') }}">Home</a></li>
+                        <li><a href="{{ route('posts.about') }}">About</a></li>
+                        {{--<li><a href="{{ route('posts.show') }}">Short Codes</a></li>--}}
+                        {{--<li><a href="{{ route('posts.post') }}">Services</a></li>--}}
+                        <li class="active"><a href="{{ route('posts.show') }}">Photo Gallery</a></li>
+                        <li><a href="{{ route('posts.contact') }}">Contact Us</a></li>
                     </ul>
                 </nav>
             </div><!-- /.navbar-collapse -->
