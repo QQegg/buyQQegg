@@ -34,3 +34,9 @@ Route::group(['prefix' => 'comment'], function() {
     Route::put('/update/{id}',['as'=>'comupdate','uses'=>'CommentController@update']);
     Route::delete('/destroy/{id}',['as'=>'comdestroy','uses'=>'CommentController@destroy']);
 });
+
+Route::get('posts', ['as' => 'posts.index', 'uses' => 'ChangeMemberController@index']);
+Route::get('post', ['as' => 'posts.show', 'uses' => 'ChangeMemberController@show']);
+Route::get('about', ['as' => 'posts.about', 'uses' => 'ChangeMemberController@about']);
+Route::get('contact', ['as' => 'posts.contact', 'uses' => 'ChangeMemberController@contact']);
+
