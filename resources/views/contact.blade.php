@@ -2,6 +2,7 @@
 <!-- header -->
 @section('title', 'Contact')
 <!-- //banner -->
+@section('content')
 <!-- contact -->
 	<div class="contact">
 		<div class="map">
