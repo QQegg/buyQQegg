@@ -3,70 +3,145 @@
 @section('title', 'Contact')
 <!-- //banner -->
 @section('content')
+
 <!-- contact -->
 	<div class="contact">
-		<div class="map">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.899142009709!2d23.72354!3d37.979482999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd238977fb45%3A0xbdf5a6106a003293!2sFashion+Workshop+by+Vicky+Kaya!5e0!3m2!1sen!2sin!4v1440569426817" frameborder="0" style="border:0" allowfullscreen></iframe>
-		</div>
+
 		<div class="contact-grids">
 			<div class="container">
 			<ol class="breadcrumb breadco">
 				<li><a href="#">Home</a></li>
-				<li class="active">Contact Us</li>
+				<li class="active">修改基本資料</li>
 			</ol>
-			<div class="col-md-3 contact-grid">
-				<div class="call">
-					<div class="col-xs-3 contact-grdl">
-						<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-					</div>
-					<div class="col-xs-9 contact-grdr">
-						<ul>
-							<li>+3402 890 679</li>
-							<li>+5356 890 679</li>
-						</ul>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="address">
-					<div class="col-xs-3 contact-grdl">
-						<span class="glyphicon glyphicon-send" aria-hidden="true"></span>
-					</div>
-					<div class="col-xs-9 contact-grdr">
-						<ul>
-							<li>345 Diamond Street,</li>
-							<li>Greece.</li>
-						</ul>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="mail">
-					<div class="col-xs-3 contact-grdl">
-						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-					</div>
-					<div class="col-xs-9 contact-grdr">
-						<ul>
-							<li><a href="mailto:info@example.com">info@example.com</a></li>
-						</ul>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-			</div>
-			<div class="col-md-5 contact-grid">
-				<form>
-					<input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-					<input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-					<textarea type="text"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
-					<input type="submit" value="Send" >
-				</form>
-			</div>
 			<div class="col-md-4 contact-grid">
 				<div class="newsletter">
-					<h3><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>Newsletter</h3>
+					<h3><span class="glyphicon glyphicon-user" aria-hidden="true" ></span>
+						<span style="font-family:Microsoft JhengHei;" >基本資料</span>
+					</h3>
 				</div>
 				<form>
 					<input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
 					<input type="submit" value="Subscribe" >
 				</form>
+			</div>
+			<div class="col-md-8 contact-grid">
+				@if(session('success'))
+					<div class="alert alert-success">{{session('success')}}</div>
+				@elseif(session('error'))
+					<div class="alert alert-danger">{{session('error')}}</div>
+				@endif
+				<form class="form-horizontal" method="POST" action="{{ url('change/password') }}">
+					{{ csrf_field() }}
+					<div class="form-group{{ $errors->has('account') ? ' has-error' : '' }}">
+						<label for="account" class="col-md-4 control-label">帳號</label>
+
+						<div class="col-md-6">
+							<label for="account" class="col-md-4 control-label">{{ Auth::user()->account }}</label>
+						</div>
+					</div>
+					{{--<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">--}}
+						{{--<label for="password" class="col-md-4 control-label">old密碼</label>--}}
+
+						{{--<div class="col-md-6">--}}
+							{{--<input id="password" type="password" class="form-control" name="passwordold" required>--}}
+
+							{{--@if ($errors->has('passwordold'))--}}
+								{{--<span class="help-block">--}}
+                                        {{--<strong>{{ $errors->first('passwordold') }}</strong>--}}
+                                    {{--</span>--}}
+							{{--@endif--}}
+						{{--</div>--}}
+					{{--</div>--}}
+
+					<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+						<label for="password" class="col-md-4 control-label">new密碼</label>
+
+						<div class="col-md-6">
+							<input id="password" type="password" class="form-control" name="password"  placeholder="{{ Auth::user()->password }}"required>
+
+							@if ($errors->has('password'))
+								<span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+							@endif
+						</div>
+					</div>
+
+					{{--<div class="form-group">--}}
+						{{--<label for="password-confirm" class="col-md-4 control-label">check請再次輸入密碼</label>--}}
+
+						{{--<div class="col-md-6">--}}
+							{{--<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>--}}
+						{{--</div>--}}
+					{{--</div>--}}
+					{{--name--}}
+					<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+						<label for="name" class="col-md-4 control-label">姓名</label>
+
+						<div class="col-md-6">
+							<input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="{{ Auth::user()->name }}" required autofocus>
+
+							@if ($errors->has('name'))
+								<span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+							@endif
+						</div>
+					</div>
+					{{--phone--}}
+					<div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+						<label for="phone" class="col-md-4 control-label">電話</label>
+
+						<div class="col-md-6">
+							<input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}" placeholder="{{ Auth::user()->phone }}" required autofocus>
+
+							@if ($errors->has('phone'))
+								<span class="help-block">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+							@endif
+						</div>
+					</div>
+					{{--birthday--}}
+					<div class="form-group{{ $errors->has('birthday') ? ' has-error' : '' }}">
+						<label for="birthday" class="col-md-4 control-label">生日</label>
+
+						<div class="col-md-6">
+							<input id="birthday" type="date" class="form-control" name="birthday" value="{{ old('birthday') }}" placeholder="{{ Auth::user()->birthday }}" required autofocus>
+
+							@if ($errors->has('birthday'))
+								<span class="help-block">
+                                        <strong>{{ $errors->first('birthday') }}</strong>
+                                    </span>
+							@endif
+						</div>
+					</div>
+
+					{{--email--}}
+					<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+						<label for="email" class="col-md-4 control-label">E-Mail</label>
+
+						<div class="col-md-6">
+							<input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="{{ Auth::user()->email }}" required>
+
+							@if ($errors->has('email'))
+								<span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+							@endif
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-6 col-md-offset-4">
+							<button type="submit" class="btn btn-info">
+								更新基本資料
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-4 contact-grid">
+
 			</div>
 			<div class="clearfix"> </div>
 			</div>
