@@ -51,17 +51,7 @@ Route::get('posts', ['as' => 'posts.index', 'uses' => 'ChangeMemberController@in
 Route::get('post', ['as' => 'posts.show', 'uses' => 'ChangeMemberController@show']);
 Route::get('about', ['as' => 'posts.about', 'uses' => 'ChangeMemberController@about']);
 Route::get('contact', ['as' => 'posts.contact', 'uses' => 'ChangeMemberController@contact']);
+Route::get('change/password/ww', ['as' => 'posts.password', 'uses' => 'ChangeMemberController@password']);
 
-Route::post('change/password', ['as' => 'posts.update', 'uses' => 'ChangeMemberController@update']);
-//Route::post('change/password',function (Request $request){
-//    $User=User::find(Auth::user()->id);
-//    $User->update($request->all());
-//    return back()->with('success','Password Changed');
-//    if(Hash::check(Input::get('passwordold'),$User['password']) && Input::get('password') ==Input::get('password_confirmation')){
-//        $User->password =bcrypt(Input::get('password'));
-//        $User->save();
-//        return back()->with('success','Password Changed');
-//    }
-//    else
-//        return back()->with('error','Password not changed');
-//});
+Route::post('change/profile', ['as' => 'posts.update', 'uses' => 'ChangeMemberController@update']);
+Route::post('change/password/ww', ['as' => 'posts.change_password', 'uses' => 'ChangeMemberController@change_password']);
