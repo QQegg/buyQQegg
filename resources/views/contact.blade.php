@@ -16,7 +16,7 @@
 			<div class="col-md-4 contact-grid">
 				<div class="newsletter">
 					<h3><span class="glyphicon glyphicon-user" aria-hidden="true" ></span>
-						<span style="font-family:Microsoft JhengHei;" >基本資料</span>
+						<span style="font-family:Microsoft JhengHei;" >修改基本資料</span>
 					</h3>
 				</div>
 				<form>
@@ -30,7 +30,7 @@
 				@elseif(session('error'))
 					<div class="alert alert-danger">{{session('error')}}</div>
 				@endif
-				<form class="form-horizontal" method="POST" action="{{ url('change/password') }}">
+				<form class="form-horizontal" method="POST" action="{{ url('change/profile') }}">
 					{{ csrf_field() }}
 					<div class="form-group{{ $errors->has('account') ? ' has-error' : '' }}">
 						<label for="account" class="col-md-4 control-label">帳號</label>
@@ -53,19 +53,19 @@
 						{{--</div>--}}
 					{{--</div>--}}
 
-					<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-						<label for="password" class="col-md-4 control-label">new密碼</label>
+					{{--<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">--}}
+						{{--<label for="password" class="col-md-4 control-label">new密碼</label>--}}
 
-						<div class="col-md-6">
-							<input id="password" type="password" class="form-control" name="password"  placeholder="{{ Auth::user()->password }}"required>
+						{{--<div class="col-md-6">--}}
+							{{--<input id="password" type="password" class="form-control" name="password"  placeholder="{{ Auth::user()->password }}"required>--}}
 
-							@if ($errors->has('password'))
-								<span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-							@endif
-						</div>
-					</div>
+							{{--@if ($errors->has('password'))--}}
+								{{--<span class="help-block">--}}
+                                        {{--<strong>{{ $errors->first('password') }}</strong>--}}
+                                    {{--</span>--}}
+							{{--@endif--}}
+						{{--</div>--}}
+					{{--</div>--}}
 
 					{{--<div class="form-group">--}}
 						{{--<label for="password-confirm" class="col-md-4 control-label">check請再次輸入密碼</label>--}}
