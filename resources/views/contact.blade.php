@@ -131,6 +131,20 @@
 							@endif
 						</div>
 					</div>
+					{{--picture--}}
+					<div class="form-group{{ $errors->has('picture') ? ' has-error' : '' }}">
+						<label for="picture" class="col-md-4 control-label">上傳大頭貼</label>
+
+						<div class="col-md-6">
+							<input id="picture" type="file" class="form-control" name="picture" value="{{ old('picture') }}" placeholder="{{ Auth::user()->picture }}" required>
+
+							@if ($errors->has('picture'))
+								<span class="help-block">
+                                        <strong>{{ $errors->first('picture') }}</strong>
+                                    </span>
+							@endif
+						</div>
+					</div>
 					<div class="form-group">
 						<div class="col-md-6 col-md-offset-4">
 							<button type="submit" class="btn btn-info">
