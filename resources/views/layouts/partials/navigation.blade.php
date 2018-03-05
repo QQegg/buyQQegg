@@ -39,6 +39,7 @@
                         {{--<li><a href="{{ route('posts.post') }}">Services</a></li>--}}
                         <li class="active"><a href="{{ route('posts.show') }}">Photo Gallery</a></li>
                         <li><a href="{{ route('posts.contact') }}">Contact Us</a></li>
+                        <li><a href="{{ route('posts.change_password') }}">change_password</a></li>
                     </ul>
                 </nav>
             </div><!-- /.navbar-collapse -->
