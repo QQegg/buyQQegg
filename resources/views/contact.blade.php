@@ -116,7 +116,6 @@
 							@endif
 						</div>
 					</div>
-
 					{{--email--}}
 					<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 						<label for="email" class="col-md-4 control-label">E-Mail</label>
@@ -134,7 +133,6 @@
 					{{--picture--}}
 					<div class="form-group{{ $errors->has('picture') ? ' has-error' : '' }}">
 						<label for="picture" class="col-md-4 control-label">上傳大頭貼</label>
-
 						<div class="col-md-6">
 							<input id="picture" type="file" class="form-control" name="picture" value="{{ old('picture') }}" placeholder="{{ Auth::user()->picture }}" required>
 
@@ -143,6 +141,14 @@
                                         <strong>{{ $errors->first('picture') }}</strong>
                                     </span>
 							@endif
+						</div>
+					</div>
+					{{--point--}}
+					<div class="form-group{{ $errors->has('point') ? ' has-error' : '' }}">
+						<label for="account" class="col-md-4 control-label">目前累積點數</label>
+
+						<div class="col-md-6">
+							<label for="account" class="col-md-4 control-label">{{ Auth::user()->point }}</label>
 						</div>
 					</div>
 					<div class="form-group">
