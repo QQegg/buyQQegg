@@ -33,13 +33,13 @@
             <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                 <nav class="cl-effect-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ route('posts.index') }}">Home</a></li>
-                        <li><a href="{{ route('posts.about') }}">About</a></li>
-                        {{--<li><a href="{{ route('posts.show') }}">Short Codes</a></li>--}}
-                        {{--<li><a href="{{ route('posts.post') }}">Services</a></li>--}}
-                        <li class="active"><a href="{{ route('posts.show') }}">Photo Gallery</a></li>
-                        <li><a href="{{ route('posts.contact') }}">Contact Us</a></li>
-                        <li><a href="{{ route('posts.change_password') }}">change_password</a></li>
+                        <li class="active"><a href="{{ route('home') }}">Home</a></li>
+                        <li class="active"><a href="{{ route('about') }}">About</a></li>
+                        <li class="active"><a href="{{ route('codes') }}">Short Codes</a></li>
+                        <li class="active"><a href="{{ route('services') }}">Services</a></li>
+                        <li class="active"><a href="{{ route('photo') }}">Photo Gallery</a></li>
+                        <li class="active"><a href="{{ route('contact') }}">Contact Us</a></li>
+                        <li class="active"><a href="{{ route('change_password') }}">change_password</a></li>
                     </ul>
                 </nav>
             </div><!-- /.navbar-collapse -->

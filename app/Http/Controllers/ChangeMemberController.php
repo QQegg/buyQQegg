@@ -10,13 +10,13 @@ use Hash;
 
 class ChangeMemberController extends Controller
 {
-    public function index()
+    public function home()
     {
         return view('index');
     }
-    public function show()
+    public function photo()
     {
-        return view('post');
+        return view('gallery');
     }
     public function about()
     {
@@ -25,6 +25,14 @@ class ChangeMemberController extends Controller
     public function contact()
     {
         return view('contact');
+    }
+    public function codes()
+    {
+        return view('codes');
+    }
+    public function services()
+    {
+        return view('services');
     }
     public function password()
     {
