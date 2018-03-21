@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
+
 {
     protected $fillable=[
         'id',
@@ -18,5 +19,4 @@ class Product extends Model
     ];
 
     protected $table="commoditys";
-}
 }
