@@ -43,6 +43,6 @@ Route::get('change/password/ww', ['as' => 'posts.password', 'uses' => 'ChangeMem
 Route::post('change/profile', ['as' => 'posts.update', 'uses' => 'ChangeMemberController@update']);
 
 Route::group(['prefix' => 'product'], function() {
-    Route::get('/index',['as'=>'prolist','uses'=>'ProductController@index']);
+    Route::get('/index',['as'=>'prolist','uses'=>'ProductsController@index']);
 });
 Route::post('change/password/ww', ['as' => 'change_password', 'uses' => 'ChangeMemberController@change_password']);
