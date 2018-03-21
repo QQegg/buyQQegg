@@ -31,11 +31,14 @@ Route::group(['prefix' => 'comment'], function() {
     Route::delete('/destroy/{id}',['as'=>'comdestroy','uses'=>'CommentController@destroy']);
 });
 
-Route::get('posts', ['as' => 'posts.index', 'uses' => 'ChangeMemberController@index']);
-Route::get('post', ['as' => 'posts.show', 'uses' => 'ChangeMemberController@show']);
-Route::get('about', ['as' => 'posts.about', 'uses' => 'ChangeMemberController@about']);
-Route::get('contact', ['as' => 'posts.contact', 'uses' => 'ChangeMemberController@contact']);
+Route::get('posts', ['as' => 'home', 'uses' => 'ChangeMemberController@home']);
+Route::get('photo', ['as' => 'photo', 'uses' => 'ChangeMemberController@photo']);
+Route::get('about', ['as' => 'about', 'uses' => 'ChangeMemberController@about']);
+Route::get('contact', ['as' => 'contact', 'uses' => 'ChangeMemberController@contact']);
+Route::get('codes', ['as' => 'codes', 'uses' => 'ChangeMemberController@codes']);
+Route::get('services', ['as' => 'services', 'uses' => 'ChangeMemberController@services']);
+
 Route::get('change/password/ww', ['as' => 'posts.password', 'uses' => 'ChangeMemberController@password']);
 
 Route::post('change/profile', ['as' => 'posts.update', 'uses' => 'ChangeMemberController@update']);
-Route::post('change/password/ww', ['as' => 'posts.change_password', 'uses' => 'ChangeMemberController@change_password']);
+Route::post('change/password/ww', ['as' => 'change_password', 'uses' => 'ChangeMemberController@change_password']);
