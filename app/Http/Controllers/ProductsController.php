@@ -19,4 +19,9 @@ class ProductsController extends Controller
         }
         return view('services', compact('product'));
     }
+
+    public function detail()
+    {
+        return view('single');
+    }
 }
