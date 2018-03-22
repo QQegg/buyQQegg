@@ -34,13 +34,13 @@ Route::group(['prefix' => 'comment'], function() {
 Route::get('posts', ['as' => 'home', 'uses' => 'ChangeMemberController@home']);
 Route::get('photo', ['as' => 'photo', 'uses' => 'ChangeMemberController@photo']);
 Route::get('about', ['as' => 'about', 'uses' => 'ChangeMemberController@about']);
-Route::get('contact', ['as' => 'contact', 'uses' => 'ChangeMemberController@contact']);
+Route::get('change/profile', ['as' => 'contact', 'uses' => 'ChangeMemberController@contact']);
 Route::get('codes', ['as' => 'codes', 'uses' => 'ChangeMemberController@codes']);
 Route::get('services', ['as' => 'services', 'uses' => 'ChangeMemberController@services']);
 
 Route::get('change/password/ww', ['as' => 'posts.password', 'uses' => 'ChangeMemberController@password']);
 
-Route::post('change/profile', ['as' => 'posts.update', 'uses' => 'ChangeMemberController@update']);
+Route::post('change/profile', ['as' => 'change_profile', 'uses' => 'ChangeMemberController@update']);
 
 Route::group(['prefix' => 'product'], function() {
     Route::get('/index',['as'=>'prolist','uses'=>'ProductsController@index']);

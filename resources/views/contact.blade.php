@@ -30,7 +30,7 @@
 				@elseif(session('error'))
 					<div class="alert alert-danger">{{session('error')}}</div>
 				@endif
-				<form class="form-horizontal" method="POST" action="{{ url('change/profile') }}">
+				<form class="form-horizontal" method="POST" action="{{ route('change_profile') }}">
 					{{ csrf_field() }}
 					<div class="form-group{{ $errors->has('account') ? ' has-error' : '' }}">
 						<label for="account" class="col-md-4 control-label">帳號</label>
