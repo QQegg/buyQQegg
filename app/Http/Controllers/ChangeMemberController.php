@@ -24,7 +24,8 @@ class ChangeMemberController extends Controller
     }
     public function contact()
     {
-        return view('contact');
+        $user_picture = User::all()->where('name',Auth::guard()->user()->name);
+        return view('contact',compact('user_picture'));
     }
     public function codes()
     {
@@ -41,7 +42,15 @@ class ChangeMemberController extends Controller
     public function update(Request $request)
     {
         $User=User::find(Auth::user()->id);
+        if ($request->hasFile('picture')) {
+            $file_name = $request->file('picture')->getClientOriginalName();
+            $destinationPath = '/public/user';
+            $request->file('picture')->storeAs($destinationPath, $file_name);
+        }
         $User->update($request->all());
+        $User->update([
+            'picture' => $file_name,
+        ]);
         return back()->with('success','修改成功');
     }
     public function change_password()
