@@ -17,11 +17,14 @@ class ProductsController extends Controller
             $product[$cc]['C_name'] = $category_name->first();
             $cc++;
         }
-        return view('services', compact('product'));
+        return view('productlist', compact('product'));
     }
 
-    public function detail()
+    public function detail($id)
     {
-        return view('single');
+        $product = Product::all()->where('id',$id);
+        $category_name = Category::all()->where('id',$product->first()['Category_id'])->pluck('name');
+        $product->first()['C_name'] = $category_name->first();
+        return view('productdetail',compact('product'));
     }
 }
