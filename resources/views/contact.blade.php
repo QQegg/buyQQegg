@@ -1,3 +1,4 @@
+
 @extends('layouts.master')
 <!-- header -->
 @section('title', 'Contact')
@@ -30,7 +31,7 @@
 				@elseif(session('error'))
 					<div class="alert alert-danger">{{session('error')}}</div>
 				@endif
-				<form class="form-horizontal" method="POST" action="{{ route('change_profile') }}">
+				<form class="form-horizontal" method="POST" action="{{ route('change_profile') }}" enctype="multipart/form-data">
 					{{ csrf_field() }}
 					<div class="form-group{{ $errors->has('account') ? ' has-error' : '' }}">
 						<label for="account" class="col-md-4 control-label">帳號</label>
@@ -149,6 +150,14 @@
 
 						<div class="col-md-6">
 							<label for="account" class="col-md-4 control-label">{{ Auth::user()->point }}</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="account" class="col-md-4 control-label">目前大頭貼</label>
+						<div class="col-md-6">
+							@foreach($user_picture as $user_picture)
+								<img src="{{url('../storage/user/'. $user_picture->picture)}}" width="300px" height="200px" style="border:2px green dashed;">
+							@endforeach
 						</div>
 					</div>
 					<div class="form-group">
