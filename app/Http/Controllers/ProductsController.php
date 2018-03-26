@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -26,5 +27,13 @@ class ProductsController extends Controller
         $category_name = Category::all()->where('id',$product->first()['Category_id'])->pluck('name');
         $product->first()['C_name'] = $category_name->first();
         return view('productdetail',compact('product'));
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request['name'];
+        $product = Product::all()->where('name','like',$search);
+
+        return view('productlist',compact('product'));
     }
 }

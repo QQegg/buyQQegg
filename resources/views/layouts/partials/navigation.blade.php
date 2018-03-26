@@ -1,7 +1,10 @@
 <div class="header">
     <div class="search">
-        <form>
+        <form action="{{route('prosearch')}}" method="POST">
+            {{ csrf_field() }}
             <i class="glyphicon glyphicon-search" aria-hidden="true"></i><input type="text" value="Search Here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Here';}" required="">
+            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+            <button type="submit" class="btn btn-success">新增</button>
         </form>
     </div>
     <div class="logo">
