@@ -18,7 +18,7 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="{{route('postlist')}}">
+                    <a href="{{route('postlist')}}">Post.php
                         管理後台
                     </a>
                 </li>
