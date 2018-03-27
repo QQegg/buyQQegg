@@ -21,6 +21,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('noti','NotiController@index');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'comment'], function() {
@@ -44,3 +46,12 @@ Route::group(['prefix' => 'product'], function() {
     Route::post('/search',['as'=>'prosearch','uses'=>'ProductsController@search']);
 });
 Route::post('change/password/ww', ['as' => 'change_password', 'uses' => 'ChangeMemberController@change_password']);
+
+/*完工*/
+Route::group(['prefix' => 'post'], function() {
+    Route::get('/',['as'=>'postlist','uses'=>'PostsController@index']);
+    Route::post('/store',['as' => 'poststore' ,'uses'=>'PostsController@store']);
+    Route::get('/edit/{id}',['as'=>'postedit','uses'=>'PostsController@edit']);
+    Route::post('/update/{id}',['as'=>'postupdate','uses'=>'PostsController@update']);
+    Route::get('/destroy/{id}',['as'=>'postdestroy','uses'=>'PostsController@destroy']);
+});
