@@ -32,7 +32,7 @@ class ProductsController extends Controller
     public function search(Request $request)
     {
         $search = $request['name'];
-        $product = Product::all()->where('name','like',$search);
+        $product = Product::all()->where('name','LIKE',$search);
 
         return view('productlist',compact('product'));
     }

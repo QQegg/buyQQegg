@@ -10,6 +10,15 @@
 				<li><a href="#">Home</a></li>
 				<li class="active">產品列表</li>
 			</ol>
+			<table>
+				<form action="{{route('prosearch')}}" method="post">
+					<tr>
+						<td><input type="text" name="name"></td>
+						<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+						<td><input type="submit" name="Search" value="Search"></td>
+					</tr>
+				</form>
+			</table>
 			<div class="services-overview">
 				<h3>產品列表</h3>
 				<div class="services-overview-grids">
