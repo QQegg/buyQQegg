@@ -32,7 +32,14 @@ class ProductsController extends Controller
     public function search(Request $request)
     {
         $search = $request['name'];
-        $product = Product::all()->where('name','LIKE',$search);
+
+        $product = Product::where('name','LIKE',"%{$search}%")->get();
+        $cc = 0;
+        foreach ($product as $count){
+            $category_name = Category::all()->where('id',$count['Category_id'])->pluck('name');
+            $product[$cc]['C_name'] = $category_name->first();
+            $cc++;
+        }
 
         return view('productlist',compact('product'));
     }

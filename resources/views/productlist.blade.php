@@ -10,15 +10,15 @@
 				<li><a href="#">Home</a></li>
 				<li class="active">產品列表</li>
 			</ol>
-			<table>
-				<form action="{{route('prosearch')}}" method="post">
-					<tr>
-						<td><input type="text" name="name"></td>
-						<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-						<td><input type="submit" name="Search" value="Search"></td>
-					</tr>
+				<form action="{{route('prosearch')}}" method="get" class="form-inline">
+					<div class="form-group">
+						<input type="text" class="form-control" name="name" placeholder="請輸入關鍵字">
+					</div>
+
+					<div class="form-group">
+						<button class="btn btn-success" type="submit">搜尋</button>
+					</div>
 				</form>
-			</table>
 			<div class="services-overview">
 				<h3>產品列表</h3>
 				<div class="services-overview-grids">
@@ -40,6 +40,7 @@
 							</div>
 						</div>
 					</div>
+
 					@endforeach
 					<div class="clearfix"> </div>
 				</div>
