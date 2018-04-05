@@ -18,7 +18,7 @@ class ProductsController extends Controller
             $product[$cc]['C_name'] = $category_name->first();
             $cc++;
         }
-        return view('productlist', compact('product'));
+        return view('product.productlist', compact('product'));
     }
 
     public function detail($id)
@@ -26,14 +26,18 @@ class ProductsController extends Controller
         $product = Product::all()->where('id',$id);
         $category_name = Category::all()->where('id',$product->first()['Category_id'])->pluck('name');
         $product->first()['C_name'] = $category_name->first();
-        return view('productdetail',compact('product'));
+        return view('product.productdetail',compact('product'));
     }
 
     public function search(Request $request)
     {
         $search = $request['name'];
 
-        $product = Product::where('name','LIKE',"%{$search}%")->get();
+        $category_id = Category::where('name','like',"%{$search}%")->get()->pluck('id');
+
+        $product = Product::where('name','LIKE',"%{$search}%")
+            ->orwhere('Category_id','like',"%{$category_id->first()}%")->get();
+
         $cc = 0;
         foreach ($product as $count){
             $category_name = Category::all()->where('id',$count['Category_id'])->pluck('name');
@@ -41,6 +45,6 @@ class ProductsController extends Controller
             $cc++;
         }
 
-        return view('productlist',compact('product'));
+        return view('product.productlist',compact('product'));
     }
 }
