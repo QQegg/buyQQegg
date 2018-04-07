@@ -23,7 +23,7 @@
 				<br>
 				<font size="+4" style="font-family:DFKai-sb;" class="div-left">店家：<a href="{{route('stodetail',$product->store_id)}}" style="font-family:DFKai-sb;">{{$product->S_name}}</a></font>
 				<br>
-				<a href="{{route('prolist')}}" class="btn btn-success">返回</a>
+				<a href="{{route('prolist')}}" class="btn btn-success">返回商品列表</a>
 			@endforeach
 		</div>
 	</div>
