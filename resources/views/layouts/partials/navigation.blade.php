@@ -41,6 +41,8 @@
                         <li class="active"><a href="{{ route('services') }}">Services</a></li>
                         <li class="active"><a href="{{ route('photo') }}">Photo Gallery</a></li>
                         <li class="active"><a href="{{ route('contact') }}">Contact Us</a></li>
+                        <li class="active"><a href="{{ route('prolist') }}">商品列表</a></li>
+                        <li class="active"><a href="{{ route('stolist') }}">店家列表</a></li>
                         <li class="active"><a href="{{ route('change_password') }}">change_password</a></li>
                     </ul>
                 </nav>
