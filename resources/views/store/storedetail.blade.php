@@ -8,20 +8,22 @@
 		<div class="container">
 			<ol class="breadcrumb breadco">
 				<li><a href="#">Home</a></li>
-				<li class="active">產品詳細資訊</li>
+				<li class="active">店家詳細資訊</li>
 			</ol>
-			<h3>產品詳細資訊</h3>
-			@foreach($product as $product)
-				<img src="{{env('BACKEND_URL') . $product->picture}}" alt=" " class="img-responsive" />
-				<font size="+4" style="font-family:DFKai-sb;" class="div-left">商品名稱：{{$product->name}}</font>
+			<h3>店家詳細資訊</h3>
+			@foreach($store as $store)
+				<img src="{{env('BACKEND_URL2') . $store->picture}}" alt=" " class="img-responsive" />
+				<font size="+4" style="font-family:DFKai-sb;" class="div-left">名稱：{{$store->name}}</font>
 				<br>
-				<font size="+4" style="font-family:DFKai-sb;" class="div-left">商品類別：{{$product->C_name}}</font>
+				<font size="+4" style="font-family:DFKai-sb;" class="div-left">聯絡人：{{$store->contact}}</font>
 				<br>
-				<font size="+4" style="font-family:DFKai-sb;" class="div-left">商品規格：{{$product->specification}}</font>
+				<font size="+4" style="font-family:DFKai-sb;" class="div-left">e-mail：{{$store->email}}</font>
 				<br>
-				<font size="+4" style="font-family:DFKai-sb;" class="div-left">商品價格：{{$product->price}}</font>
+				<font size="+4" style="font-family:DFKai-sb;" class="div-left">連絡電話：{{$store->phone}}</font>
 				<br>
-				<a href="{{route('prolist')}}" class="btn btn-success">返回</a>
+				<font size="+4" style="font-family:DFKai-sb;" class="div-left">地址：{{$store->address}}</font>
+				<br>
+				<a href="{{route('stolist')}}" class="btn btn-success">返回店家列表</a>
 			@endforeach
 		</div>
 	</div>

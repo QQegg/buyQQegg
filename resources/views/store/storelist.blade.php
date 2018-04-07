@@ -8,9 +8,9 @@
 		<div class="container">
 			<ol class="breadcrumb breadco">
 				<li><a href="#">Home</a></li>
-				<li class="active">產品列表</li>
+				<li class="active">店家列表</li>
 			</ol>
-				<form action="{{route('prosearch')}}" method="get" class="form-inline">
+				<form action="{{route('stosearch')}}" method="get" class="form-inline">
 					<div class="form-group">
 						<input type="text" class="form-control" name="name" placeholder="請輸入關鍵字">
 					</div>
@@ -22,15 +22,13 @@
 			<div class="services-overview">
 				<h3>產品列表</h3>
 				<div class="services-overview-grids">
-					@foreach($product as $product)
+					@foreach($store as $store)
 					<div class="col-md-4 services-overview-grid">
 						<div class="services-overview-grd">
-							<img src="{{env('BACKEND_URL') . $product->picture}}" alt=" " class="img-responsive" />
+							<img src="{{env('BACKEND_URL2') . $store->picture}}" alt=" " class="img-responsive" />
 							<div class="services-overview-gd">
-								<h4>商品名稱：{{$product->name}}</h4>
-								<h4>商品類別：{{$product->C_name}}</h4>
-								<h4>商品價格：{{$product->price}}$</h4>
-								<a href="{{route('prodetail',$product->id)}}" class="btn btn-success">觀看產品詳細資訊</a>
+								<h4>名稱：{{$store->name}}</h4>
+								<a href="{{route('stodetail',$store->id)}}" class="btn btn-success">觀看店家詳細資訊</a>
 								<ul class="social-icons">
 									<li><a href="#" class="p"></a></li>
 									<li><a href="#" class="in"></a></li>
