@@ -27,9 +27,9 @@
 						<div class="services-overview-grd">
 							<img src="{{env('BACKEND_URL') . $product->picture}}" alt=" " class="img-responsive" />
 							<div class="services-overview-gd">
-								<h4>商品名稱：{{$product->name}}</h4>
-								<h4>商品類別：{{$product->C_name}}</h4>
-								<h4>商品價格：{{$product->price}}$</h4>
+								<h4>名稱：{{$product->name}}</h4>
+								<h4>類別：{{$product->C_name}}</h4>
+								<h4>價格：{{$product->price}}$</h4>
 								<a href="{{route('prodetail',$product->id)}}" class="btn btn-success">觀看產品詳細資訊</a>
 								<ul class="social-icons">
 									<li><a href="#" class="p"></a></li>

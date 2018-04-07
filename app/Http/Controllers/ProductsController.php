@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
+use App\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -25,7 +26,9 @@ class ProductsController extends Controller
     {
         $product = Product::all()->where('id',$id);
         $category_name = Category::all()->where('id',$product->first()['Category_id'])->pluck('name');
+        $store_name = Store::all()->where('id',$product->first()['store_id'])->pluck('name');
         $product->first()['C_name'] = $category_name->first();
+        $product->first()['S_name'] = $store_name->first();
         return view('product.productdetail',compact('product'));
     }
 
