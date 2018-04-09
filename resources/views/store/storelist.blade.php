@@ -20,7 +20,7 @@
 					</div>
 				</form>
 			<div class="services-overview">
-				<h3>產品列表</h3>
+				<h3>店家列表</h3>
 				<div class="services-overview-grids">
 					@foreach($store as $store)
 					<div class="col-md-4 services-overview-grid">

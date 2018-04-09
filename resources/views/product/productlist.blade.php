@@ -1,6 +1,6 @@
 @extends('layouts.master')
 <!-- header -->
-@section('title', 'services')
+@section('title', '')
 <!-- //banner -->
 @section('content')
 <!-- services -->
@@ -8,7 +8,7 @@
 		<div class="container">
 			<ol class="breadcrumb breadco">
 				<li><a href="#">Home</a></li>
-				<li class="active">產品列表</li>
+				<li class="active">商品列表</li>
 			</ol>
 				<form action="{{route('prosearch')}}" method="get" class="form-inline">
 					<div class="form-group">
@@ -20,7 +20,7 @@
 					</div>
 				</form>
 			<div class="services-overview">
-				<h3>產品列表</h3>
+				<h3>商品列表</h3>
 				<div class="services-overview-grids">
 					@foreach($product as $product)
 					<div class="col-md-4 services-overview-grid">
