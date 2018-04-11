@@ -11,9 +11,33 @@
     </div>
     <div class="logo-right">
         <ul>
-            <li><a href="mailto:info@example.com">mail@example.com</a></li>|
-            <li>Contact Us</li>|
-            <li>+0297 889 908</li>
+            @if(Auth::guard()->check())
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                       您好！ {{ Auth::user()->account }} <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="{{route('change_password')}}">修改密碼</a>
+                            <a href="{{route('change_profile')}}">修改基本資料</a>
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                登出
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+                @else
+                    <li><a href="{{ route('register') }}">註冊</a></li>|
+                    <li><a href="{{ route('login') }}">登入</a></li>
+
+                @endif
         </ul>
     </div>
     <div class="clearfix"> </div>
@@ -40,10 +64,8 @@
                         <li class="active"><a href="{{ route('codes') }}">Short Codes</a></li>
                         <li class="active"><a href="{{ route('services') }}">Services</a></li>
                         <li class="active"><a href="{{ route('photo') }}">Photo Gallery</a></li>
-                        <li class="active"><a href="{{ route('contact') }}">Contact Us</a></li>
                         <li class="active"><a href="{{ route('prolist') }}">商品列表</a></li>
                         <li class="active"><a href="{{ route('stolist') }}">店家列表</a></li>
-                        <li class="active"><a href="{{ route('change_password') }}">change_password</a></li>
                     </ul>
                 </nav>
             </div><!-- /.navbar-collapse -->
