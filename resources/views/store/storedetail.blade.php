@@ -25,6 +25,8 @@
 				<br>
 				<a href="{{route('stolist')}}" class="btn btn-success">返回店家列表</a>
 			@endforeach
+
+<button class="btn btn-info" data-toggle="modal" data-target="#mycomment">新增評論</button>
 		</div>
 	</div>
 		<!--script-->

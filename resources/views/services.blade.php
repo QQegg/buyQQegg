@@ -94,14 +94,12 @@
 			<div class="services-overview">
 				<h3>Services Overview</h3>
 				<div class="services-overview-grids">
-					@foreach($product as $product)
+
 					<div class="col-md-4 services-overview-grid">
 						<div class="services-overview-grd">
-							<img src="{{env('BACKEND_URL') . $product->picture}}" alt=" " class="img-responsive" />
+							<img src="" alt=" " class="img-responsive" />
 							<div class="services-overview-gd">
-								<h4>商品名稱：{{$product->name}}</h4>
-								<p>商品類別：{{$product->C_name}}</p>
-								<p>商品價格：{{$product->price}}$</p>
+
 								<ul class="social-icons">
 									<li><a href="#" class="p"></a></li>
 									<li><a href="#" class="in"></a></li>
@@ -111,7 +109,7 @@
 							</div>
 						</div>
 					</div>
-					@endforeach
+
 					<div class="clearfix"> </div>
 				</div>
 			</div>

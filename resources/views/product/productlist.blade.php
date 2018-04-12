@@ -1,6 +1,6 @@
 @extends('layouts.master')
 <!-- header -->
-@section('title', '商品列表')
+@section('title', 'services')
 <!-- //banner -->
 @section('content')
 <!-- services -->
