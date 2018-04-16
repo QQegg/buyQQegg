@@ -10,9 +10,14 @@ class CommentController extends Controller
     public function create()
     {
     }
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
-        Comment::create($request->all());
+        Comment::create([
+            'Store_id' => $id,
+            'content' => $request['content'],
+            'rate' => $request['rate'],
+        ]);
+        return redirect()->route('stodetail',$id);
     }
     public function edit()
     {

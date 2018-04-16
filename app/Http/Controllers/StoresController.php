@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Store;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class StoresController extends Controller
     public function detail($id)
     {
         $store = Store::all()->where('id',$id);
-        return view('store.storedetail',compact('store'));
+        $comment = Comment::all()->where('Store_id',$id);
+        return view('store.storedetail',compact('store','comment'));
     }
 
     public function search(Request $request)

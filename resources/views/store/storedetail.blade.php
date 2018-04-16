@@ -27,7 +27,6 @@
 				<font size="+4" style="font-family:DFKai-sb;" class="div-left">地址：{{$store->address}}</font>
 				<br>
 				<a href="{{route('stolist')}}" class="btn btn-success">返回店家列表</a>
-			@endforeach
 					<button class="btn btn-info" data-toggle="modal" data-target="#myComment">新增評論</button>
 
 			<div class="modal fade" id="myComment" role="dialog">
@@ -38,12 +37,9 @@
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
 							<h4 class="modal-title">評論者：{{ Auth::user()->name}}</h4>
 						</div>
-						<form action="{{route('comstore')}}" method="POST" id="frm-insert">
+						<form action="{{route('comstore',$store->id)}}" method="POST" id="frm-insert">
+							{{ csrf_field() }}
 							<div class="modal-body">
-								<div class="write-review-title-container">
-									<input name="title" class="review-input-text-box write-review-comment" placeholder="標題" style="width:566px;">
-								</div>
-								<br>
 								<div class="write-review-comment-container">
 									<textarea name="content" style="resize:none; width:566px;height:100px;" class="review-input-text-box write-review-comment" maxlength=" 4096 " placeholder="請寫下對本店的評論" aria-label="請寫下對本店的評論"></textarea>
 								</div>
@@ -111,22 +107,21 @@
 									}
 								</style>
 
-								<div class="rating">
-									<input type="radio" name="star" id="star1"><label for="star1">
+									<div class="rating">
+									<input type="radio" name="rate" id="star1" value="5"><label for="star1">
 									</label>
-									<input type="radio" name="star" id="star2"><label for="star2">
+									<input type="radio" name="rate" id="star2" value="4"><label for="star2">
 									</label>
-									<input type="radio" name="star" id="star3"><label for="star3">
+									<input type="radio" name="rate" id="star3" value="3"><label for="star3">
 									</label>
-									<input type="radio" name="star" id="star4"><label for="star4">
+									<input type="radio" name="rate" id="star4" value="2"><label for="star4">
 									</label>
-									<input type="radio" name="star" id="star5"><label for="star5">
+									<input type="radio" name="rate" id="star5" value="1"><label for="star5">
 									</label>
 								</div>
-
 							</div>
 							<div class="modal-footer">
-								<input type="submit" class="btn btn-success pull-right" value="提交">
+								<button type="submit" class="btn btn-success pull-right" >提交</button>
 								<button type="button" class="btn btn-default pull-left" data-dismiss="modal">close</button>
 							</div>
 						</form>
@@ -134,7 +129,10 @@
 
 				</div>
 			</div>
-
+			@endforeach
+			@foreach($comment as $comment)
+				<div class="container">{{$comment->content}}</div>
+			@endforeach
 		</div>
 	</div>
 
