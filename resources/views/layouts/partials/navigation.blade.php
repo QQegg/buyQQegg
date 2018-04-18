@@ -74,5 +74,6 @@
 </div>
 <!-- //header -->
 <!-- banner -->
-<div class="banner1">
-</div>
+{{--藍色那張圖片有需要再加--}}
+{{--<div class="banner1">--}}
+{{--</div>--}}
