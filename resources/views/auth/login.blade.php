@@ -1,7 +1,12 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container">
+    <div class="contact-grids">
+        <div class="container">
+            <ol class="breadcrumb breadco">
+                <li><a href="{{ route('home') }}">Home</a></li>
+                <li class="active">登入</li>
+            </ol>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-white">
@@ -66,4 +71,5 @@
         </div>
     </div>
 </div>
+    </div>
 @endsection
