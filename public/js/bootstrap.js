@@ -2102,6 +2102,7 @@ if (typeof jQuery === 'undefined') {
     }
 
     $active.length && transition ?
+
       $active
         .one('bsTransitionEnd', next)
         .emulateTransitionEnd(Tab.TRANSITION_DURATION) :

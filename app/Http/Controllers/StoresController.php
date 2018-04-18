@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Store;
+use App\User;
 use Illuminate\Http\Request;
 
 class StoresController extends Controller
@@ -16,7 +18,15 @@ class StoresController extends Controller
     public function detail($id)
     {
         $store = Store::all()->where('id',$id);
-        return view('store.storedetail',compact('store'));
+        $comment = Comment::all()->where('Store_id',$id);
+        $cc = 0;
+        foreach ($comment as $count){
+            $user = User::all()->where('id',$count['Member_id'])->pluck('name');
+            $comment[$cc]['user_name'] = $user->first();
+            $cc++;
+            $count['rate']= $count['rate']*20;
+        }
+        return view('store.storedetail',compact('store','comment'));
     }
 
     public function search(Request $request)
