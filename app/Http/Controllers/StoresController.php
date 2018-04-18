@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Comment;
 use App\Store;
 use App\User;
@@ -26,7 +27,9 @@ class StoresController extends Controller
             $cc++;
             $count['rate']= $count['rate']*20;
         }
-        return view('store.storedetail',compact('store','comment'));
+        $user_id = Comment::all()->where('Member_id', Auth::user()->id)->pluck('Member_id');
+        $user_comment = Comment::all()->where('Member_id',Auth::user()->id);
+        return view('store.storedetail',compact('store','comment','user_id','user_comment'));
     }
 
     public function search(Request $request)
