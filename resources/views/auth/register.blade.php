@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+            <div class="panel panel-white">
+                <div class="panel-heading" style="text-align:center;color:black;font-family: 標楷體;" ><h2>註冊<br><small>Register</small></h2></div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
@@ -119,8 +119,8 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    註冊
+                                <button type="submit" class="btn btn-group-vertical" style="background-color:pink;font-weight:bold;color:black;width:100%;">
+                                    註 冊
                                 </button>
                             </div>
                         </div>
