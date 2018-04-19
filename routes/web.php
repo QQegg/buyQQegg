@@ -44,7 +44,7 @@ Route::post('change/profile', ['as' => 'change_profile', 'uses' => 'ChangeMember
 Route::group(['prefix' => 'product'], function() {
     Route::get('/index',['as'=>'prolist','uses'=>'ProductsController@index']);
     Route::get('/detail/{id}',['as'=>'prodetail','uses'=>'ProductsController@detail']);
-    Route::get('/search',['as'=>'prosearch','uses'=>'ProductsController@search']);
+    Route::post('/search',['as'=>'prosearch','uses'=>'ProductsController@search']);
 });
 
 Route::group(['prefix' => 'store'], function() {

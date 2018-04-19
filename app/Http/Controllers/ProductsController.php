@@ -38,8 +38,12 @@ class ProductsController extends Controller
 
         $category_id = Category::where('name','like',"%{$search}%")->get()->pluck('id');
 
-        $product = Product::where('name','LIKE',"%{$search}%")
-            ->orwhere('Category_id','like',"%{$category_id->first()}%")->get();
+        if ($category_id->count()==0){
+            $product = Product::where('name','like',"%{$search}%")->get();
+        }else{
+            $product = Product::where('name','like',"%{$search}%")
+                ->orwhere('Category_id','like',"%{$category_id->first()}%")->get();
+        }
 
         $cc = 0;
         foreach ($product as $count){

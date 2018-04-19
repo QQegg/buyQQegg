@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -26,7 +27,10 @@ class CommentController extends Controller
     public function update()
     {
     }
-    public function destroy()
+    public function destroy(Request $request, $id)
     {
+        $whereArray = array('id' => $id);
+        DB::table('comments')->where($whereArray)->delete();
+        return redirect()->route('stodetail',$request['Store_id']);
     }
 }
