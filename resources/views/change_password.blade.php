@@ -1,11 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
+    <div class="contact-grids">
 <div class="container">
+    <ol class="breadcrumb breadco">
+        <li><a href="{{ route('home') }}">Home</a></li>
+        <li class="active">修改密碼</li>
+    </ol>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading"><h2>{{ Auth::user()->account }} 修改密碼</h2></div>
+            <div class="panel panel-white">
+                <div class="panel-heading" style="text-align:center;color:black;font-family: 標楷體;" ><h2>修改密碼<br><small>Change Password</small></h2></div>
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('change_password') }}">
                         {{ csrf_field() }}
@@ -54,7 +59,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-white" style="background-color:pink;font-weight:bold;color:black;width:100%;">
                                     修改密碼
                                 </button>
                             </div>

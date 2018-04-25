@@ -6,8 +6,8 @@
 <!-- gallery -->
 
 
-
-	<div class="gallery">
+<div class="gallery" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+	 xmlns:border-bottom-style="http://www.w3.org/1999/xhtml">
 		<div class="container">
 			<ol class="breadcrumb breadco">
 				<li><a href="#">Home</a></li>
@@ -26,79 +26,172 @@
 				<br>
 				<font size="+4" style="font-family:DFKai-sb;" class="div-left">地址：{{$store->address}}</font>
 				<br>
-				<a href="{{route('stolist')}}" class="btn btn-success">返回店家列表</a>
+				<a href="{{route('stolist')}}" style="float: left" class="btn btn-success">返回店家列表</a>
+				@if(count($user_id) == 0)
 					<button class="btn btn-info" data-toggle="modal" data-target="#myComment">新增評論</button>
+				@elseif($user_id['0'] == 0)
+					必須先入才可以留言喔!
+				@else
+					@foreach($comment_id as $comment_id)
+					<form style="float: left" class="delete" action="{{route('comdestroy',$comment_id)}}" method="post">
+						<input type="hidden" name="_method" value="DELETE">
+						<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+						<input type="hidden" name="Store_id" value="{{$store->id}}">
+						<input type="submit" class="btn btn-info" value="刪除評論">
+					</form>
+					@endforeach
+				@endif
 
 			<div class="modal fade" id="myComment" role="dialog">
 				<div class="modal-dialog">
-
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">評論者：{{ Auth::user()->name}}</h4>
+							@if(Auth::user() == null)
+								尚未有登入的使用者
+								@else
+								<h4 class="modal-title">評論者：{{ Auth::user()->name}}</h4>
+							@endif
 						</div>
-						<form action="{{route('comstore',Auth::user()->id)}}" method="POST" id="frm-insert">
-							{{ csrf_field() }}
-							<div class="modal-body">
-								<input type="hidden" name="Store_id" value="{{$store->id}}">
-								<div class="write-review-comment-container">
-									<textarea name="content" style="resize:none; width:566px;height:100px;" class="review-input-text-box write-review-comment" maxlength=" 4096 " placeholder="請寫下對本店的評論" aria-label="請寫下對本店的評論"></textarea>
-								</div>
 
+                        @if(Auth::user() == null)
+                            尚未有登入的使用者
+                        @else
+                            <form action="{{route('comstore',Auth::user()->id)}}" method="POST" id="frm-insert">
+                                {{ csrf_field() }}
+                                <div class="modal-body">
+                                    <input type="hidden" name="Store_id" value="{{$store->id}}">
 
-								<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-								<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+                                    <div class="write-review-comment-container">
+                                        <textarea name="content" style="resize:none; width:566px;height:100px;" class="review-input-text-box write-review-comment" maxlength=" 4096 " placeholder="請寫下對本店的評論" aria-label="請寫下對本店的評論"></textarea>
+                                    </div>
 
-								<style>
-                                    .rating {
-                                        font-size: 0;
-                                        display: table;
-                                    }
+                                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                                    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-                                    .rating > label {
-                                        color: #ddd;
-                                        float: right;
-                                    }
+                                    <style>
+                                        .rating {
+                                            font-size: 0;
+                                            display: table;
+                                        }
 
-                                    .rating > label:before {
-                                        padding: 5px;
-                                        font-size: 24px;
-                                        line-height: 1em;
-                                        display: inline-block;
-                                        content: "★";
-                                    }
+                                        .rating > label {
+                                            color: #ddd;
+                                            float: right;
+                                        }
 
-                                    .rating > input:checked ~ label,
-                                    .rating:not(:checked) > label:hover,
-                                    .rating:not(:checked) > label:hover ~ label {
-                                        color: #FFD700;
-                                    }
+                                        .rating > label:before {
+                                            padding: 5px;
+                                            font-size: 24px;
+                                            line-height: 1em;
+                                            display: inline-block;
+                                            content: "★";
+                                        }
 
-                                    .rating > input:checked ~ label:hover,
-                                    .rating > label:hover ~ input:checked ~ label,
-                                    .rating > input:checked ~ label:hover ~ label {
-                                        opacity: 0.5;
-                                    }
-								</style>
+                                        .rating > input:checked ~ label,
+                                        .rating:not(:checked) > label:hover,
+                                        .rating:not(:checked) > label:hover ~ label {
+                                            color: #FFD700;
+                                        }
 
-                                <div class="rating">
-                                    <input type="radio" id="star5" name="rating" value="5" hidden/>
-                                    <label for="star5"></label>
-                                    <input type="radio" id="star4" name="rating" value="4" hidden/>
-                                    <label for="star4"></label>
-                                    <input type="radio" id="star3" name="rating" value="3" hidden/>
-                                    <label for="star3"></label>
-                                    <input type="radio" id="star2" name="rating" value="2" hidden/>
-                                    <label for="star2"></label>
-                                    <input type="radio" id="star1" name="rating" value="1" hidden/>
-                                    <label for="star1"></label>
+                                        .rating > input:checked ~ label:hover,
+                                        .rating > label:hover ~ input:checked ~ label,
+                                        .rating > input:checked ~ label:hover ~ label {
+                                            opacity: 0.5;
+                                        }
+                                    </style>
+
+                                    <div class="rating">
+                                        <input type="radio" id="star1" name="rating" value="5" hidden/>
+                                        <label for="star1"></label>
+                                        <input type="radio" id="star2" name="rating" value="4" hidden/>
+                                        <label for="star2"></label>
+                                        <input type="radio" id="star3" name="rating" value="3" hidden/>
+                                        <label for="star3"></label>
+                                        <input type="radio" id="star4" name="rating" value="2" hidden/>
+                                        <label for="star4"></label>
+                                        <input type="radio" id="star5" name="rating" value="1" hidden/>
+                                        <label for="star5"></label>
+                                    </div>
                                 </div>
-							</div>
-							<div class="modal-footer">
-								<button type="submit" class="btn btn-success pull-right" >提交</button>
-								<button type="button" class="btn btn-default pull-left" data-dismiss="modal">close</button>
-							</div>
-						</form>
+                                <div class="modal-footer">
+									<script>
+                                        jQuery(document).ready(function()
+                                            {
+                                                jQuery("#star1").click(function(){
+                                                    if(jQuery("#star1").is(":checked"))
+                                                    {
+                                                        jQuery("#Button").prop("disabled",false);
+                                                    }
+                                                    else
+                                                    {
+                                                        jQuery("#Button").prop("disabled",true);
+                                                    }
+                                                });
+                                            }
+                                        );
+                                        jQuery(document).ready(function()
+                                            {
+                                                jQuery("#star2").click(function(){
+                                                    if(jQuery("#star2").is(":checked"))
+                                                    {
+                                                        jQuery("#Button").prop("disabled",false);
+                                                    }
+                                                    else
+                                                    {
+                                                        jQuery("#Button").prop("disabled",true);
+                                                    }
+                                                });
+                                            }
+                                        );
+                                        jQuery(document).ready(function()
+                                            {
+                                                jQuery("#star3").click(function(){
+                                                    if(jQuery("#star3").is(":checked"))
+                                                    {
+                                                        jQuery("#Button").prop("disabled",false);
+                                                    }
+                                                    else
+                                                    {
+                                                        jQuery("#Button").prop("disabled",true);
+                                                    }
+                                                });
+                                            }
+                                        );
+                                        jQuery(document).ready(function()
+                                            {
+                                                jQuery("#star4").click(function(){
+                                                    if(jQuery("#star4").is(":checked"))
+                                                    {
+                                                        jQuery("#Button").prop("disabled",false);
+                                                    }
+                                                    else
+                                                    {
+                                                        jQuery("#Button").prop("disabled",true);
+                                                    }
+                                                });
+                                            }
+                                        );
+                                        jQuery(document).ready(function()
+                                            {
+                                                jQuery("#star5").click(function(){
+                                                    if(jQuery("#star5").is(":checked"))
+                                                    {
+                                                        jQuery("#Button").prop("disabled",false);
+                                                    }
+                                                    else
+                                                    {
+                                                        jQuery("#Button").prop("disabled",true);
+                                                    }
+                                                });
+                                            }
+                                        );
+									</script>
+                                    <button id="Button" type="submit" class="btn btn-success pull-right disable" disabled="disabled">提交</button>
+                                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">close</button>
+                                </div>
+                            </form>
+                        @endif
 					</div>
 				</div>
 			</div>
@@ -150,27 +243,37 @@
 
 		<div class="container" style="border-top-style:solid;padding:5px;">
             @foreach($comment as $comment)
-                {{$comment->user_name}}
-
-                <div class="star-rating">
-                    <div class="star-rating-top" style="width:{{$comment->rate}}%">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="star-rating-bottom">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-				<div>
-					{{$comment->content}}
-				</div>
+				<ul>
+					<li><div> {{$comment->user_name}}</div>
+						<ul>
+							<div style="float: left">
+								{{$comment->content}}
+							</div>
+							<div style="float: left" class="star-rating">
+								<div class="star-rating-top" style="width:{{$comment->rate}}%">
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+								<div class="star-rating-bottom">
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</div>
+							<br>
+							<ul>
+								@if(!$comment->Store_comment == null)
+								<li>店家回應：{{ $comment->Store_comment}}</li>
+									@endif
+							</ul>
+						</ul>
+					</li>
+				</ul>
 					@endforeach
 		</div>
 	</div>
