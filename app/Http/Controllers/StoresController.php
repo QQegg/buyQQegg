@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use App\StoreComment;
 use App\Comment;
 use App\Store;
 use App\User;
@@ -27,6 +28,13 @@ class StoresController extends Controller
             $comment[$cc]['user_name'] = $user->first();
             $cc++;
             $count['rate']= $count['rate']*20;
+        }
+
+        $aa = 0;
+        foreach ($comment as $count){
+            $store_content = StoreComment::all()->where('Store_id',$count['Store_id'] and 'Member_id',$count['Member_id'])->pluck('content');
+            $comment[$aa]['Store_comment'] = $store_content->first();
+            $aa++;
         }
 
         if (Auth::user() == null){

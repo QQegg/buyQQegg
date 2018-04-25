@@ -26,14 +26,14 @@
 				<br>
 				<font size="+4" style="font-family:DFKai-sb;" class="div-left">地址：{{$store->address}}</font>
 				<br>
-				<a href="{{route('stolist')}}" class="btn btn-success">返回店家列表</a>
+				<a href="{{route('stolist')}}" style="float: left" class="btn btn-success">返回店家列表</a>
 				@if(count($user_id) == 0)
 					<button class="btn btn-info" data-toggle="modal" data-target="#myComment">新增評論</button>
 				@elseif($user_id['0'] == 0)
 					必須先入才可以留言喔!
 				@else
 					@foreach($comment_id as $comment_id)
-					<form class="delete" action="{{route('comdestroy',$comment_id)}}" method="post">
+					<form style="float: left" class="delete" action="{{route('comdestroy',$comment_id)}}" method="post">
 						<input type="hidden" name="_method" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 						<input type="hidden" name="Store_id" value="{{$store->id}}">
@@ -243,27 +243,37 @@
 
 		<div class="container" style="border-top-style:solid;padding:5px;">
             @foreach($comment as $comment)
-                {{$comment->user_name}}
-
-                <div class="star-rating">
-                    <div class="star-rating-top" style="width:{{$comment->rate}}%">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="star-rating-bottom">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-				<div>
-					{{$comment->content}}
-				</div>
+				<ul>
+					<li><div> {{$comment->user_name}}</div>
+						<ul>
+							<div style="float: left">
+								{{$comment->content}}
+							</div>
+							<div style="float: left" class="star-rating">
+								<div class="star-rating-top" style="width:{{$comment->rate}}%">
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+								<div class="star-rating-bottom">
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</div>
+							<br>
+							<ul>
+								@if(!$comment->Store_comment == null)
+								<li>店家回應：{{ $comment->Store_comment}}</li>
+									@endif
+							</ul>
+						</ul>
+					</li>
+				</ul>
 					@endforeach
 		</div>
 	</div>
