@@ -1,13 +1,13 @@
 <div class="header">
     <div class="search">
-        <form action="{{route('prosearch')}}" method="POST">
+        <form action="{{route('prosearch')}}" method="POST" style="display: none">
             <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
             <i class="glyphicon glyphicon-search" aria-hidden="true"></i><input type="text" value="Search Here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Here';}" required="">
             <button type="submit" class="btn btn-success">查詢</button>
         </form>
     </div>
     <div class="logo">
-        <a href="index.html">Seafaring <span>A Travel Agency</span></a>
+        <a>Seafaring <span>A Travel Agency</span></a>
     </div>
     <div class="logo-right">
         <ul>
@@ -60,10 +60,12 @@
                 <nav class="cl-effect-1">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{{ route('home') }}">Home</a></li>
+                        <!--
                         <li class="active"><a href="{{ route('about') }}">About</a></li>
                         <li class="active"><a href="{{ route('codes') }}">Short Codes</a></li>
                         <li class="active"><a href="{{ route('services') }}">Services</a></li>
                         <li class="active"><a href="{{ route('photo') }}">Photo Gallery</a></li>
+                        -->
                         <li class="active"><a href="{{ route('prolist') }}">商品列表</a></li>
                         <li class="active"><a href="{{ route('stolist') }}">店家列表</a></li>
                     </ul>

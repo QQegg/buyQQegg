@@ -14,7 +14,6 @@
 					<div class="form-group">
 						<input type="text" class="form-control" name="name" placeholder="請輸入關鍵字">
 					</div>
-
 					<div class="form-group">
 						<button class="btn btn-success" type="submit">搜尋</button>
 					</div>
@@ -40,7 +39,6 @@
 							</div>
 						</div>
 					</div>
-
 					@endforeach
 					<div class="clearfix"> </div>
 				</div>

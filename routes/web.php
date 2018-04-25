@@ -32,6 +32,7 @@ Route::group(['prefix' => 'comment'], function() {
     Route::patch('/update/{id}',['as'=>'comupdate','uses'=>'CommentController@update']);
     Route::delete('/destroy/{id}',['as'=>'comdestroy','uses'=>'CommentController@destroy']);
 });
+
 Route::get('posts', ['as' => 'home', 'uses' => 'ChangeMemberController@home']);
 Route::get('photo', ['as' => 'photo', 'uses' => 'ChangeMemberController@photo']);
 Route::get('about', ['as' => 'about', 'uses' => 'ChangeMemberController@about']);
@@ -55,7 +56,6 @@ Route::group(['prefix' => 'store'], function() {
 
 Route::post('change/password/ww', ['as' => 'change_password', 'uses' => 'ChangeMemberController@change_password']);
 
-/*完工*/
 Route::group(['prefix' => 'post'], function() {
     Route::get('/',['as'=>'postlist','uses'=>'PostsController@index']);
     Route::post('/store',['as' => 'poststore' ,'uses'=>'PostsController@store']);
