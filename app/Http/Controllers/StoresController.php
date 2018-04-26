@@ -32,7 +32,7 @@ class StoresController extends Controller
 
         $aa = 0;
         foreach ($comment as $count){
-            $store_content = StoreComment::all()->where('Store_id',$count['Store_id'] and 'Member_id',$count['Member_id'])->pluck('content');
+            $store_content = StoreComment::all()->where('Member_id',$count['Member_id'])->pluck('content');
             $comment[$aa]['Store_comment'] = $store_content->first();
             $aa++;
         }
