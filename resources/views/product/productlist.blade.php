@@ -10,7 +10,7 @@
 				<li><a href="#">Home</a></li>
 				<li class="active">商品列表</li>
 			</ol>
-				<form action="{{route('prosearch')}}" method="get" class="form-inline">
+				<form action="{{route('prosearch')}}" method="post" class="form-inline">
 					{{ csrf_field() }}
 					<div class="form-group">
 						<input type="text" class="form-control" name="name" placeholder="請輸入關鍵字">
