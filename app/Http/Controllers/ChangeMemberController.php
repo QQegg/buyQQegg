@@ -70,5 +70,9 @@ class ChangeMemberController extends Controller
         $aa=User::all()->where('id',Auth::user()->id);
         return view('my_qrcode',compact('aa'));
     }
-
+    public function account()
+    {
+        $aa=User::all()->where('id',Auth::user()->id);
+        return view('account',compact('aa'));
+    }
 }

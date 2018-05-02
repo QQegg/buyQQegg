@@ -20,7 +20,8 @@
         <div class="container">
             <ol class="breadcrumb breadco">
                 <li><a href="{{ route('home') }}">Home</a></li>
-                <li class="active">我的會員</li>
+                <li><a href="{{ route('account') }}">我的會員</a></li>
+                <li class="active">我的會員條碼</li>
             </ol>
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">

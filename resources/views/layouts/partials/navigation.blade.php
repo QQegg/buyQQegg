@@ -19,7 +19,7 @@
 
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="{{route('qrcode')}}">我的會員</a>
+                            <a href="{{route('account')}}">我的會員</a>
                             <a href="{{route('change_password')}}">修改密碼</a>
                             <a href="{{route('change_profile')}}">修改基本資料</a>
                             <a href="{{ route('logout') }}"
