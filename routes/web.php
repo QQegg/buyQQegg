@@ -34,6 +34,7 @@ Route::group(['prefix' => 'comment'], function() {
 });
 Route::get('account', ['as' => 'account', 'uses' => 'ChangeMemberController@account']);
 Route::get('qrcode', ['as' => 'qrcode', 'uses' => 'ChangeMemberController@qrcode']);
+Route::get('point', ['as' => 'point', 'uses' => 'ChangeMemberController@point']);
 Route::get('posts', ['as' => 'home', 'uses' => 'ChangeMemberController@home']);
 Route::get('photo', ['as' => 'photo', 'uses' => 'ChangeMemberController@photo']);
 Route::get('about', ['as' => 'about', 'uses' => 'ChangeMemberController@about']);

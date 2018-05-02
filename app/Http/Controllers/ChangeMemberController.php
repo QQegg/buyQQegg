@@ -75,4 +75,9 @@ class ChangeMemberController extends Controller
         $aa=User::all()->where('id',Auth::user()->id);
         return view('account',compact('aa'));
     }
+    public function point()
+    {
+        $point=User::all()->where('id',Auth::user()->id);
+        return view('point',compact('point'));
+    }
 }

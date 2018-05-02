@@ -14,11 +14,12 @@
 
 
                         <form action="{{route('qrcode')}}">
-                            <button type="submit" class=" btn btn-info & center-block">我的會員條碼</button>
+                            <button type="submit" class=" btn & center-block">我的會員條碼</button>
                         </form>
+                        <br>
 
-                        <form action="{{route('qrcode')}}">
-                            <button type="submit" class=" btn btn-info & center-block">我的會員條碼</button>
+                        <form action="{{route('point')}}">
+                            <button type="submit" class=" btn  & center-block">我的點數</button>
                         </form>
 
 
