@@ -64,4 +64,11 @@ class ChangeMemberController extends Controller
         else
             return back()->with('error','修改失敗');
     }
+
+    public function qrcode()
+    {
+        $aa=User::all()->where('id',Auth::user()->id);
+        return view('my_qrcode',compact('aa'));
+    }
+
 }
