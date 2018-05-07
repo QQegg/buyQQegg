@@ -22,6 +22,11 @@
 			<div class="services-overview">
 				<h3>店家列表</h3>
 				<div class="services-overview-grids">
+					@if(count($store) == 0)
+						<p class="text-center">
+							無店家
+						</p>
+					@endif
 					@foreach($store as $store)
 					<div class="col-md-4 services-overview-grid">
 						<div class="services-overview-grd">
