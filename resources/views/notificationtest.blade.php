@@ -42,6 +42,5 @@
         test.test();
     </script>
     @endforeach
-
 </body>
 </html>
