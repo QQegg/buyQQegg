@@ -41,6 +41,27 @@
 					</form>
 					@endforeach
 				@endif
+			<br>
+			<br>
+			<div style="float: left">
+				總評分：
+				<div class="star-rating">
+					<div class="star-rating-top" style="width:{{$starrate}}%">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<div class="star-rating-bottom">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+			</div>
 
 			<div class="modal fade" id="myComment" role="dialog">
 				<div class="modal-dialog">
@@ -265,6 +286,7 @@
 									<span></span>
 								</div>
 							</div>
+							<br>
 							<br>
 							<ul>
 								@if(!$comment->Store_comment == null)

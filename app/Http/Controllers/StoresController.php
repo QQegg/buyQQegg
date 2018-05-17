@@ -21,6 +21,15 @@ class StoresController extends Controller
     {
         $store = Store::all()->where('id',$id);
         $comment = Comment::all()->where('Store_id',$id);
+
+        $num = 0;
+        $starsum = 0;
+        foreach ($comment as $count){
+            $starsum =+ $count['rate'];
+            $num++;
+        }
+        $starrate = $starsum/$num*20;
+
         $cc = 0;
 
         foreach ($comment as $count){
@@ -48,7 +57,7 @@ class StoresController extends Controller
         }else{
             $comment_id = Comment::all()->where('Member_id', Auth::user()->id)->pluck('id');
         }
-        return view('store.storedetail',compact('store','comment','user_id','comment_id'));
+        return view('store.storedetail',compact('store','comment','user_id','comment_id','starrate'));
     }
 
     public function search(Request $request)
