@@ -28,11 +28,12 @@ class StoresController extends Controller
             $num = 0;
             $starsum = 0;
             foreach ($comment as $count) {
-                $starsum =+$count['rate'];
+                $starsum = $starsum + $count['rate'];
                 $num++;
             }
             $starrate = $starsum / $num * 20;
         }
+
 
         $cc = 0;
 
