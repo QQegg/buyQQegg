@@ -1,15 +1,8 @@
 <div class="header">
-    <div class="search">
-        <form action="{{route('prosearch')}}" method="POST" style="display: none">
-            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-            <i class="glyphicon glyphicon-search" aria-hidden="true"></i><input type="text" value="Search Here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Here';}" required="">
-            <button type="submit" class="btn btn-success">查詢</button>
-        </form>
-    </div>
-    <div class="logo">
+    <div class="logo" style="position:absolute;top:20px;left:0px;">
         <a>Seafaring <span>A Travel Agency</span></a>
     </div>
-    <div class="logo-right">
+    <div style="position:relative;top:0px;left:500px;">
         <ul>
             @if(Auth::guard()->check())
                 <li class="dropdown">
