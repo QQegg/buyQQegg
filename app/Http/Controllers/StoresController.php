@@ -22,7 +22,7 @@ class StoresController extends Controller
         $store = Store::all()->where('id', $id);
         $comment = Comment::all()->where('Store_id', $id);
 
-        if ($comment == null) {
+        if ($comment->count() == 0) {
             $starrate = 0;
         } else {
             $num = 0;
