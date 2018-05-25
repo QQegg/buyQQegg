@@ -1,8 +1,30 @@
 <div class="header">
-    <div class="logo" style="position:absolute;top:20px;left:0px;">
+    <div class="logo">
         <a>Seafaring <span>A Travel Agency</span></a>
     </div>
-    <div style="position:relative;top:0px;left:500px;">
+
+    <style>
+        .logo-left{
+            margin-right:4em;
+        }
+        .logo-left ul {
+            padding: 1.3em 0 0;
+        }
+        .logo-left ul li{
+            display:inline-block;
+            color:#999;
+            font-size:14px;
+            margin: 0 1em;
+        }
+        .logo-left ul li a{
+            color:#999;
+            text-decoration:none;
+        }
+        .logo-left ul li a:hover{
+            color:#66D5DE;
+        }
+    </style>
+    <div class="logo-left">
         <ul>
             @if(Auth::guard()->check())
                 <li class="dropdown">
