@@ -66,9 +66,15 @@
                         <li class="active"><a href="{{ route('codes') }}">Short Codes</a></li>
                         <li class="active"><a href="{{ route('services') }}">Services</a></li>
                         <li class="active"><a href="{{ route('photo') }}">Photo Gallery</a></li>
-                        -->
+                        -->@if(Auth::guard()->check())
                         <li class="active"><a href="{{ route('prolist') }}">商品列表</a></li>
                         <li class="active"><a href="{{ route('stolist') }}">店家列表</a></li>
+                        <li class="active"><a href="{{ route('couponlist') }}">我的折價券</a></li>
+                         <li class="active"><a href="{{ route('pushlist') }}">促銷訊息</a></li>
+                        @else
+                            <li class="active"><a href="{{ route('prolist') }}">商品列表</a></li>
+                            <li class="active"><a href="{{ route('stolist') }}">店家列表</a></li>
+                        @endif
                     </ul>
                 </nav>
             </div><!-- /.navbar-collapse -->

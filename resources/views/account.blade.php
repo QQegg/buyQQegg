@@ -22,13 +22,6 @@
                             <button type="submit" class=" btn  & center-block">我的點數</button>
                         </form>
 
-
-
-
-
-
-
-
                     </div>
                 </div>
             </div>
