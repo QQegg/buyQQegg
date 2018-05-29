@@ -56,6 +56,16 @@ Route::group(['prefix' => 'store'], function() {
     Route::get('/search',['as'=>'stosearch','uses'=>'StoresController@search']);
 });
 
+Route::group(['prefix' => 'push'], function() {
+    Route::get('/index',['as'=>'pushlist','uses'=>'PushsController@index']);
+    Route::get('/detail/{id}',['as'=>'pushdetail','uses'=>'PushsController@detail']);
+});
+
+Route::group(['prefix' => 'coupon'], function() {
+    Route::get('/index',['as'=>'couponlist','uses'=>'CouponsController@index']);
+    Route::get('/detail/{id}',['as'=>'coupondetail','uses'=>'CouponsController@detail']);
+});
+
 Route::post('change/password/ww', ['as' => 'change_password', 'uses' => 'ChangeMemberController@change_password']);
 
 Route::group(['prefix' => 'post'], function() {
