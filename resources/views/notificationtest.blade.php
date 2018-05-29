@@ -15,27 +15,32 @@
             context:null,
             number:null,
             test: function () {
-                id="text1"
+                id=document.getElementById("Store_id").value;
                 title=document.getElementById("title").value;
                 context=document.getElementById("content").value;
                 number=document.getElementById("number").value;
-                test1.responseID(id,title,context,number);
+                statue=document.getElementById("statue").value;
+                if(statue==1){
+                    test1.responseID(id,title,context,number);
+                    a++;
+                }
             }
         }
     </script>
+    <meta http-equiv="refresh" content="5;"/>
     </head>
 <body>
     @foreach ($noti as $for)
     <script>var a = 1 ;</script>
-    <input id="id" name="title">
-        <input id="title" name="title" value={{$for['title']}} >
-        <input id="content" name="context" value={{$for['content']}} >
-        <input id="number">
-        <script>
-            document.getElementById('number').value=a;
-            a++;
-            test.test();
-        </script>
+    <input id="title" name="title" value={{$for['title']}} >
+    <input id="content" name="context" value={{$for['content']}} >
+    <input id="statue" name="statue" value={{$for['statue']}} >
+    <input id="Store_id" name="Store_id" value={{$for['Store_id']}}>
+    <input id="number">
+    <script>
+        document.getElementById('number').value=a;
+        test.test();
+    </script>
     @endforeach
 </body>
 </html>

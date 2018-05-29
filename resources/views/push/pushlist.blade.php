@@ -8,6 +8,7 @@
 		<div class="container">
 			<ol class="breadcrumb breadco">
 				<li><a href="#">Home</a></li>
+<<<<<<< HEAD
 				<li class="active">促銷訊息列表</li>
 			</ol>
 
@@ -22,6 +23,7 @@
 								<h4>名稱：{{$push->title}}</h4>
 								<h4>店家：{{$push->Store_name}}</h4>
 								<a href="{{route('pushdetail',$push->id)}}" class="btn btn-success">觀看產品詳細資訊</a>
+
 								<ul class="social-icons">
 									<li><a href="#" class="p"></a></li>
 									<li><a href="#" class="in"></a></li>
