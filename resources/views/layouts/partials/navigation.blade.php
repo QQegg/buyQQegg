@@ -1,6 +1,6 @@
 <div class="header">
     <div class="logo">
-        <a>Seafaring <span>A Travel Agency</span></a>
+        <a>雙魚商圈</a>
     </div>
 
     <style>
@@ -75,7 +75,7 @@
             <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                 <nav class="cl-effect-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{{ route('home') }}">Home</a></li>
+                        <li class="active"><a href="{{ route('home') }}">首頁</a></li>
                         <!--
                         <li class="active"><a href="{{ route('about') }}">About</a></li>
                         <li class="active"><a href="{{ route('codes') }}">Short Codes</a></li>

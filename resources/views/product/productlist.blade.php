@@ -36,12 +36,6 @@
 								<h4>類別：{{$product->C_name}}</h4>
 								<h4>價格：{{$product->price}}$</h4>
 								<a href="{{route('prodetail',$product->id)}}" class="btn btn-success">觀看產品詳細資訊</a>
-								<ul class="social-icons">
-									<li><a href="#" class="p"></a></li>
-									<li><a href="#" class="in"></a></li>
-									<li><a href="#" class="v"></a></li>
-									<li><a href="#" class="facebook"></a></li>
-								</ul>
 							</div>
 						</div>
 					</div>
