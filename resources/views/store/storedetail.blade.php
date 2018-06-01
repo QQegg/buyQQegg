@@ -16,15 +16,15 @@
 			<h3>店家詳細資訊</h3>
 			@foreach($store as $store)
 				<img src="{{env('BACKEND_URL2') . $store->picture}}" alt=" " class="img-responsive" />
-				<font size="+4" style="font-family:DFKai-sb;" class="div-left">名稱：{{$store->name}}</font>
+				<font size="+3" style="font-family:DFKai-sb;" class="div-left">名稱：{{$store->name}}</font>
 				<br>
-				<font size="+4" style="font-family:DFKai-sb;" class="div-left">聯絡人：{{$store->contact}}</font>
+				<font size="+3" style="font-family:DFKai-sb;" class="div-left">聯絡人：{{$store->contact}}</font>
 				<br>
-				<font size="+4" style="font-family:DFKai-sb;" class="div-left">e-mail：{{$store->email}}</font>
+				<font size="+3" style="font-family:DFKai-sb;" class="div-left">e-mail：{{$store->email}}</font>
 				<br>
-				<font size="+4" style="font-family:DFKai-sb;" class="div-left">連絡電話：{{$store->phone}}</font>
+				<font size="+3" style="font-family:DFKai-sb;" class="div-left">連絡電話：{{$store->phone}}</font>
 				<br>
-				<font size="+4" style="font-family:DFKai-sb;" class="div-left">地址：{{$store->address}}</font>
+				<font size="+3" style="font-family:DFKai-sb;" class="div-left">地址：{{$store->address}}</font>
 				<br>
 				<a href="{{route('stolist')}}" style="float: left" class="btn btn-success">返回店家列表</a>
 				@if(count($user_id) == 0)

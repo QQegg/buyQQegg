@@ -34,12 +34,6 @@
 							<div class="services-overview-gd">
 								<h4>名稱：{{$store->name}}</h4>
 								<a href="{{route('stodetail',$store->id)}}" class="btn btn-success">觀看店家詳細資訊</a>
-								<ul class="social-icons">
-									<li><a href="#" class="p"></a></li>
-									<li><a href="#" class="in"></a></li>
-									<li><a href="#" class="v"></a></li>
-									<li><a href="#" class="facebook"></a></li>
-								</ul>
 							</div>
 						</div>
 					</div>
