@@ -8,7 +8,6 @@
 		<div class="container">
 			<ol class="breadcrumb breadco">
 				<li><a href="#">Home</a></li>
-<<<<<<< HEAD
 				<li class="active">促銷訊息列表</li>
 			</ol>
 
