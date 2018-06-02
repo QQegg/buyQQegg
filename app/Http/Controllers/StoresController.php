@@ -98,14 +98,17 @@ class StoresController extends Controller
         if (Auth::user() == null) {
             $user_id['0'] = 0;
         } else {
-            $user_id = Comment::all()->where('Member_id', Auth::user()->id and 'Store_id',$id)->pluck('Member_id');
+            $user_id = Comment::all()->where('Member_id', Auth::user()->id)->where('Store_id',$id)->pluck('Member_id');
         }
+
+
 
         if (Auth::user() == null) {
             $user_id['0'] = 0;
         } else {
             $comment_id = Comment::all()->where('Member_id', Auth::user()->id)->pluck('id');
         }
+
         return view('store.storedetail', compact('product', 'comment', 'user_id', 'comment_id', 'starrate','store_name_big'));
     }
 
