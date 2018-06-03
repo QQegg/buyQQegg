@@ -21,7 +21,8 @@
                     目前尚未新增商品
                 </p>
         </div>
-        <div class="container">
+        <br>
+        <div class="container" style="border-top-style:solid;padding:5px;">
             <a href="{{route('stolist')}}" class="btn btn-success">返回店家列表</a>
 
             @if(count($user_id) == 0)
@@ -29,16 +30,14 @@
             @elseif($user_id['0'] == 0)
                 必須先入才可以留言喔!
             @else
-                @foreach($comment_id as $comment_id)
-                    @foreach($store_name_big as $store_name)
-                        <form style="float: left" class="delete" action="{{route('comdestroy',$comment_id)}}"
-                              method="post">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                            <input type="hidden" name="Store_id" value="{{$store_name->id}}">
-                            <input type="submit" class="btn btn-info" value="刪除評論">
-                        </form>
-                    @endforeach
+                @foreach($store_name_big as $store_name)
+                    <form style="float: left" class="delete" action="{{route('comdestroy',$comment_id)}}"
+                          method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                        <input type="hidden" name="Store_id" value="{{$store_name->id}}">
+                        <input type="submit" class="btn btn-info" value="刪除評論">
+                    </form>
                 @endforeach
             @endif
             <br>
@@ -256,66 +255,71 @@
             <br>
             <br>
             <div class="container" style="border-top-style:solid;padding:5px;">
-                @foreach($comment as $comment)
-                    <ul>
-                        <li>
-                            <div> {{$comment->user_name}}</div>
-                            <ul>
-                                <div style="float: left">
-                                    {{$comment->content}}
-                                </div>
-                                <div style="float: left" class="star-rating">
-                                    <div class="star-rating-top" style="width:{{$comment->rate}}%">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                    <div class="star-rating-bottom">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                </div>
-                                <br>
-                                <br>
+                @if(empty($comment))
+                    <div>此店家尚未有評論</div>
+                @else
+                    @foreach($comment as $comment)
+                        <ul>
+                            <li>
+                                <div> {{$comment->user_name}}</div>
                                 <ul>
-                                    @if(!$comment->Store_comment == null)
-                                        <li>店家回應：{{ $comment->Store_comment}}</li>
-                                    @endif
+                                    <div style="float: left">
+                                        {{$comment->content}}
+                                    </div>
+                                    <div style="float: left" class="star-rating">
+                                        <div class="star-rating-top" style="width:{{$comment->rate}}%">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                        <div class="star-rating-bottom">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <ul>
+                                        @if(!$comment->Store_comment == null)
+                                            <li>店家回應：{{ $comment->Store_comment}}</li>
+                                        @endif
+                                    </ul>
                                 </ul>
-                            </ul>
-                        </li>
-                    </ul>
-                @endforeach
+                            </li>
+                        </ul>
+                        <br>
+                    @endforeach
+                @endif
             </div>
         </div>
         @else
             <div class="container">
-            <ol class="breadcrumb breadco">
-                <li><a href="#">Home</a></li>
-                <li class="active">店家商品頁面</li>
-            </ol>
-            @foreach($store_name_big as $store_name)
-                <h3 style="color: orange" <strong>「{{$store_name->name}}」</strong>的商品頁面</h3>
-            @endforeach
-            @foreach($product as $product)
-                <div class="col-md-4 services-overview-grid">
-                    <div class="services-overview-grd">
-                        <img src="{{env('BACKEND_URL') . $product->picture}}" alt=" " class="img-responsive"/>
-                        <div class="services-overview-gd">
-                            <h4>名稱：{{$product->name}}</h4>
-                            <h4>類別：{{$product->C_name}}</h4>
-                            <h4>規格：{{$product->specification}}</h4>
-                            <h4>價格：{{$product->price}}$</h4>
-                            <a href="{{route('prodetail',$product->id)}}" class="btn btn-success">觀看產品詳細資訊</a>
+                <ol class="breadcrumb breadco">
+                    <li><a href="#">Home</a></li>
+                    <li class="active">店家商品頁面</li>
+                </ol>
+                @foreach($store_name_big as $store_name)
+                    <h3 style="color: orange" <strong>「{{$store_name->name}}」</strong>的商品頁面</h3>
+                @endforeach
+                @foreach($product as $product)
+                    <div class="col-md-4 services-overview-grid">
+                        <div class="services-overview-grd">
+                            <img src="{{env('BACKEND_URL') . $product->picture}}" alt=" " class="img-responsive"/>
+                            <div class="services-overview-gd">
+                                <h4>名稱：{{$product->name}}</h4>
+                                <h4>類別：{{$product->C_name}}</h4>
+                                <h4>規格：{{$product->specification}}</h4>
+                                <h4>價格：{{$product->price}}$</h4>
+                                <a href="{{route('prodetail',$product->id)}}" class="btn btn-success">觀看產品詳細資訊</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
             </div>
 
             <div class="modal fade" id="myComment" role="dialog">
@@ -467,7 +471,7 @@
                 </div>
             </div>
 
-        <br>
+            <br>
 
             <div class='container' style="border-top-style:solid;padding:5px;">
                 <div>
@@ -477,16 +481,14 @@
                     @elseif($user_id['0'] == 0)
                         必須先入才可以留言喔!
                     @else
-                        @foreach($comment_id as $comment_id)
-                            @foreach($store_name_big as $store_name)
-                                <form style="float: left" class="delete" action="{{route('comdestroy',$comment_id)}}"
-                                      method="post">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                                    <input type="hidden" name="Store_id" value="{{$store_name->id}}">
-                                    <input type="submit" class="btn btn-info" value="刪除評論">
-                                </form>
-                            @endforeach
+                        @foreach($store_name_big as $store_name)
+                            <form style="float: left" class="delete" action="{{route('comdestroy',$comment_id)}}"
+                                  method="post">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                                <input type="hidden" name="Store_id" value="{{$store_name->id}}">
+                                <input type="submit" class="btn btn-info" value="刪除評論">
+                            </form>
                         @endforeach
                     @endif
                     <br>
@@ -591,6 +593,7 @@
                             </ul>
                         </li>
                     </ul>
+                    <br>
                 @endforeach
             </div>
         @endif

@@ -22,7 +22,7 @@ class StoresController extends Controller
     public function detail($id)
     {
         $product = Product::all()->where('store_id',$id);
-        $comment = Comment::all()->where('Store_id', $id);
+        $comment2 = Comment::all()->where('Store_id', $id);
         $store_name_big = Store::all()->where('id',$id);
         $ww=0;
         $category_name = array();
@@ -64,18 +64,23 @@ class StoresController extends Controller
             $ab++;
         }
 
-
-
-        if ($comment->count() == 0) {
+        if ($comment2->count() == 0) {
             $starrate = 0;
         } else {
             $num = 0;
             $starsum = 0;
-            foreach ($comment as $count) {
+            foreach ($comment2 as $count) {
                 $starsum = $starsum + $count['rate'];
                 $num++;
             }
             $starrate = $starsum / $num * 20;
+        }
+
+        $comment = array();
+        $art = 0;
+        foreach ($comment2 as $count){
+            $comment[$art] = $count;
+            $art++;
         }
 
 
@@ -90,7 +95,7 @@ class StoresController extends Controller
 
         $aa = 0;
         foreach ($comment as $count) {
-            $store_content = StoreComment::all()->where('Member_id', $count['Member_id'])->pluck('content');
+            $store_content = StoreComment::all()->where('Member_id', $count['Member_id'])->where('Store_id',$id)->pluck('content');
             $comment[$aa]['Store_comment'] = $store_content->first();
             $aa++;
         }
@@ -106,7 +111,7 @@ class StoresController extends Controller
         if (Auth::user() == null) {
             $user_id['0'] = 0;
         } else {
-            $comment_id = Comment::all()->where('Member_id', Auth::user()->id)->pluck('id');
+            $comment_id = Comment::all()->where('Member_id', Auth::user()->id)->where('Store_id',$id)->pluck('id');
         }
 
         return view('store.storedetail', compact('product', 'comment', 'user_id', 'comment_id', 'starrate','store_name_big'));
