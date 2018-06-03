@@ -17,11 +17,13 @@
 					@foreach($push as $push)
 					<div class="col-md-4 services-overview-grid">
 						<div class="services-overview-grd">
-							<img src="{{env('BACKEND_URL3') . $push->picture}}" alt=" " class="img-responsive" />
+							<img src="{{env('BACKEND_URL') . $push->Product_picture}}" alt=" " class="img-responsive" />
 							<div class="services-overview-gd">
 								<h4>名稱：{{$push->title}}</h4>
 								<h4>店家：{{$push->Store_name}}</h4>
-								<a href="{{route('pushdetail',$push->id)}}" class="btn btn-success">觀看產品詳細資訊</a>
+                                <h4>產品：{{$push->Product_name}}</h4>
+                                <h4>原價：{{$push->Product_price}}</h4>
+								{{--<a href="{{route('pushdetail',$push->id)}}" class="btn btn-success">觀看產品詳細資訊</a>--}}
 							</div>
 						</div>
 					</div>
