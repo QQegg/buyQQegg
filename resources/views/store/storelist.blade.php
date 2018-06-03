@@ -31,14 +31,16 @@
 					<div class="col-md-4 services-overview-grid">
 						<div class="services-overview-grd">
 							<img src="{{env('BACKEND_URL2') . $store->picture}}" alt=" " class="img-responsive" />
+
 							<div class="services-overview-gd">
 								<h4>名稱：{{$store->name}}</h4>
-								<a href="{{route('stodetail',$store->id)}}" class="btn btn-success">觀看店家詳細資訊</a>
+								<a href="{{route('stodetail',$store->id)}}" class="btn btn-success">觀看店家商品頁面</a>
 							</div>
 						</div>
 					</div>
+						@endforeach
 
-					@endforeach
+
 					<div class="clearfix"> </div>
 				</div>
 			</div>

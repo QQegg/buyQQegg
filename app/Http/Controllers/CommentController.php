@@ -30,9 +30,10 @@ class CommentController extends Controller
     public function destroy(Request $request, $id)
     {
         $whereArray = array('id' => $id);
-        $whereArray2 = array('Member_id' => $request['Store_id']);
+        $whereArray2 = array('Member_id' => $id);
+        $whereArray3 = array('Store_id' => $request['Store_id']);
         DB::table('comments')->where($whereArray)->delete();
-        DB::table('comment_store')->where($whereArray2)->delete();
+        DB::table('comment_store')->where($whereArray2)->where($whereArray3)->delete();
         return redirect()->route('stodetail',$request['Store_id']);
     }
 }

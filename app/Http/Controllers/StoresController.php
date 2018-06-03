@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use App\StoreComment;
 use App\Comment;
 use App\Store;
+use App\Category;
+use App\Product;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -19,8 +21,50 @@ class StoresController extends Controller
 
     public function detail($id)
     {
-        $store = Store::all()->where('id', $id);
+        $product = Product::all()->where('store_id',$id);
         $comment = Comment::all()->where('Store_id', $id);
+        $store_name_big = Store::all()->where('id',$id);
+        $ww=0;
+        $category_name = array();
+        $store_name = array();
+        foreach ($product as $count){
+
+            $category_name2 = Category::all()->where('id',$count['Category_id'])->pluck('name');
+
+            $category_name[$ww]['C_name']=$category_name2->first();
+
+            $ww++;
+        }
+
+        $w2=0;
+        foreach ($product as $count){
+
+            $store_name2 = Store::all()->where('id',$count['store_id'])->pluck('name');
+
+            $store_name[$w2]['S_name']=$store_name2->first();
+
+            $w2++;
+        }
+
+        $uu=0;
+        foreach ($product as $count){
+            $product2[$uu]=$count;
+            $uu++;
+        }
+        $abc=0;
+        foreach ($category_name as $count){
+
+            $product2[$abc]['C_name'] = $count['C_name'];
+            $abc++;
+        }
+        $ab=0;
+        foreach ($store_name as $count){
+
+            $product2[$ab]['S_name'] = $count['S_name'];
+            $ab++;
+        }
+
+
 
         if ($comment->count() == 0) {
             $starrate = 0;
@@ -54,15 +98,18 @@ class StoresController extends Controller
         if (Auth::user() == null) {
             $user_id['0'] = 0;
         } else {
-            $user_id = Comment::all()->where('Member_id', Auth::user()->id)->pluck('Member_id');
+            $user_id = Comment::all()->where('Member_id', Auth::user()->id)->where('Store_id',$id)->pluck('Member_id');
         }
+
+
 
         if (Auth::user() == null) {
             $user_id['0'] = 0;
         } else {
             $comment_id = Comment::all()->where('Member_id', Auth::user()->id)->pluck('id');
         }
-        return view('store.storedetail', compact('store', 'comment', 'user_id', 'comment_id', 'starrate'));
+
+        return view('store.storedetail', compact('product', 'comment', 'user_id', 'comment_id', 'starrate','store_name_big'));
     }
 
     public function search(Request $request)
