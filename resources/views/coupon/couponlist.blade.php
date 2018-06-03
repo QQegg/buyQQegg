@@ -22,13 +22,8 @@
 								<h4>名稱：{{$coupon->title}}</h4>
 								{{--<h4>店家：{{$coupon->C_name}}</h4>--}}
 								<h4>折扣金額：{{$coupon->discount}}$</h4>
-								<a href="{{route('prodetail',$coupon->id)}}" class="btn btn-success">觀看產品詳細資訊</a>
-								<ul class="social-icons">
-									<li><a href="#" class="p"></a></li>
-									<li><a href="#" class="in"></a></li>
-									<li><a href="#" class="v"></a></li>
-									<li><a href="#" class="facebook"></a></li>
-								</ul>
+                                <h4>店家：{{$coupon->S_name}}</h4>
+								{{--<a href="{{route('prodetail',$coupon->id)}}" class="btn btn-success">觀看折價券詳細資訊</a>--}}
 							</div>
 						</div>
 					</div>
