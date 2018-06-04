@@ -261,27 +261,13 @@
                     @foreach($comment as $comment)
                         <ul>
                             <li>
+
                                 <div> {{$comment->user_name}}</div>
                                 <ul>
                                     <div style="float: left">
                                         {{$comment->content}}
                                     </div>
-                                    <div style="float: left" class="star-rating">
-                                        <div class="star-rating-top" style="width:{{$comment->rate}}%">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                        <div class="star-rating-bottom">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                    </div>
+
                                     <br>
                                     <br>
                                     <ul>
@@ -558,30 +544,32 @@
                 }
             </style>
             @foreach($comment as $comment)
-            <div class="container" style="border-top-style:solid;padding:5px;">
+                <div style="float: left" class="star-rating">
+                    <div class="star-rating-top" style="width:{{$comment->rate}}%">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="star-rating-bottom">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            <div class="container" style="border-top-style:solid;">
                     <ul>
                         <li>
                             <div> {{$comment->user_name}}</div>
                             <ul>
                                 <div style="float: left">
+                                    <br>
                                     {{$comment->content}}
                                 </div>
-                                <div style="float: left" class="star-rating">
-                                    <div class="star-rating-top" style="width:{{$comment->rate}}%">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                    <div class="star-rating-bottom">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                </div>
+
                                 <br>
                                 <br>
                                 <ul>
