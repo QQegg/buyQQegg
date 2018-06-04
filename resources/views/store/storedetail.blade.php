@@ -557,9 +557,8 @@
                     z-index: 0;
                 }
             </style>
-
+            @foreach($comment as $comment)
             <div class="container" style="border-top-style:solid;padding:5px;">
-                @foreach($comment as $comment)
                     <ul>
                         <li>
                             <div> {{$comment->user_name}}</div>
@@ -594,8 +593,9 @@
                         </li>
                     </ul>
                     <br>
-                @endforeach
+
             </div>
+            @endforeach
         @endif
     </div>
 
