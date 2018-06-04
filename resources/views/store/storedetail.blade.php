@@ -261,27 +261,13 @@
                     @foreach($comment as $comment)
                         <ul>
                             <li>
+
                                 <div> {{$comment->user_name}}</div>
                                 <ul>
                                     <div style="float: left">
                                         {{$comment->content}}
                                     </div>
-                                    <div style="float: left" class="star-rating">
-                                        <div class="star-rating-top" style="width:{{$comment->rate}}%">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                        <div class="star-rating-bottom">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                    </div>
+
                                     <br>
                                     <br>
                                     <ul>
@@ -557,32 +543,33 @@
                     z-index: 0;
                 }
             </style>
-
-            <div class="container" style="border-top-style:solid;padding:5px;">
-                @foreach($comment as $comment)
+            @foreach($comment as $comment)
+                <div style="float: left" class="star-rating">
+                    <div class="star-rating-top" style="width:{{$comment->rate}}%">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="star-rating-bottom">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            <div class="container" style="border-top-style:solid;">
                     <ul>
                         <li>
                             <div> {{$comment->user_name}}</div>
                             <ul>
                                 <div style="float: left">
+                                    <br>
                                     {{$comment->content}}
                                 </div>
-                                <div style="float: left" class="star-rating">
-                                    <div class="star-rating-top" style="width:{{$comment->rate}}%">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                    <div class="star-rating-bottom">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                </div>
+
                                 <br>
                                 <br>
                                 <ul>
@@ -594,8 +581,9 @@
                         </li>
                     </ul>
                     <br>
-                @endforeach
+
             </div>
+            @endforeach
         @endif
     </div>
 
