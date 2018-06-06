@@ -41,8 +41,10 @@ class ProductsController extends Controller
         if ($category_id->count()==0){
             $product = Product::where('name','like',"%{$search}%")->get();
         }else{
-            $product = Product::where('name','like',"%{$search}%")
-                ->orwhere('Category_id','like',"%{$category_id->first()}%")->get();
+            foreach ($category_id as $item){
+                $product = Product::where('name','like',"%{$search}%")
+                    ->orwhere('Category_id',$item)->get();
+            }
         }
 
         $cc = 0;
