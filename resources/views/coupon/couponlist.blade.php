@@ -23,6 +23,7 @@
 								{{--<h4>店家：{{$coupon->C_name}}</h4>--}}
 								<h4>折扣金額：{{$coupon->discount}}$</h4>
                                 <h4>店家：{{$coupon->S_name}}</h4>
+								<h4>折價券到時間：{{$coupon->end}}</h4>
 								{{--<a href="{{route('prodetail',$coupon->id)}}" class="btn btn-success">觀看折價券詳細資訊</a>--}}
 							</div>
 						</div>

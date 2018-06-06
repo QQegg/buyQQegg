@@ -27,6 +27,7 @@
                                     @else
                                         <h4>產品：{{$push->Product_name}}</h4>
                                         <h4>原價：{{$push->Product_price}}</h4>
+                                        <h4>優惠到時間：{{$push->date_end}}</h4>
                                     @endif
                                     {{--<a href="{{route('pushdetail',$push->id)}}" class="btn btn-success">觀看產品詳細資訊</a>--}}
                                 </div>
