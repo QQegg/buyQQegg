@@ -2,39 +2,33 @@
 <!-- header -->
 @section('content')
     <!-- //header -->
+
+    <style>
+        .textposition {
+            position: relative;     /*絕對位置*/
+            top: 20%;               /*從上面開始算，下推 50% (一半) 的位置*/
+            left: 10%;              /*從左邊開始算，右推 50% (一半) 的位置*/
+               /*寬度的一半*/
+
+            width:900px;
+            height:60px;
+
+            text-align: center;
+        }
+    </style>
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div id="main-slider" class="main-slider flexslider">
-                    <ul class="slides">
-                        <li>
-                            <img src="{{env('BACKEND_URL5') . '6.jpg'}}" alt=""/>
-                            {{--<div class="flex-caption">--}}
-                            {{--<h3>Modern Design</h3>--}}
-                            {{--<p>Duis fermentum auctor ligula ac malesuada. Mauris et metus odio, in pulvinar urna</p>--}}
-                            {{--<a href="#" class="btn btn-theme">Learn More</a>--}}
-                            {{--</div>--}}
-                        </li>
-                        <li>
-                            <img src="{{env('BACKEND_URL5') . '4.jpg'}}" alt=""/>
-                            {{--<div class="flex-caption">--}}
-                            {{--<h3>Fully Responsive</h3>--}}
-                            {{--<p>Sodales neque vitae justo sollicitudin aliquet sit amet diam curabitur sed fermentum.</p>--}}
-                            {{--<a href="#" class="btn btn-theme">Learn More</a>--}}
-                            {{--</div>--}}
-                        </li>
-                        <li>
-                            <img src="{{env('BACKEND_URL5') . '5.jpg'}}" alt=""/>
-                            {{--<div class="flex-caption">--}}
-                            {{--<h3>Clean & Fast</h3>--}}
-                            {{--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit donec mer lacinia.</p>--}}
-                            {{--<a href="#" class="btn btn-theme">Learn More</a>--}}
-                            {{--</div>--}}
-                        </li>
-                    </ul>
-                </div>
             </div>
+        </div>
+        <br>
+        <div class="textposition">
+            <h1 style="color: #FF8800;">關於我們</h1>
+            <h3>
+                由雙魚商圈團隊規劃，全台最大購物空間，導入亞洲購物街精品風格，充滿活力.富有創意.新鮮有趣的環境，是我們商圈的堅持。
+                位於台中市北區益民一中商圈，被一中商圈、中友百貨、中友商圈、學士商圈、台中孔廟、忠烈祠、放送局、市長官邸餐廳環繞，區域內商圈每月流動人潮達1000萬人次，是台中市少見商業文教與觀光混和區。首創全台最大5000坪購物大道，六大主題街道，五大徒步區，目前已引進時尚、休閒、潮流、文創、娛樂、美食、美容、美髮、電子3C等產業進駐。地下室提供有400個大型平面停車位，適合參觀人潮停車使用。
+            </h3>
         </div>
     </div>
 @endsection
