@@ -5,11 +5,6 @@
 
     <style>
         .textposition {
-            position: relative;     /*絕對位置*/
-            top: 20%;               /*從上面開始算，下推 50% (一半) 的位置*/
-            left: 10%;              /*從左邊開始算，右推 50% (一半) 的位置*/
-               /*寬度的一半*/
-
             text-align: center;
         }
     </style>
