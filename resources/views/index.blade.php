@@ -10,9 +10,6 @@
             left: 10%;              /*從左邊開始算，右推 50% (一半) 的位置*/
                /*寬度的一半*/
 
-            width:900px;
-            height:60px;
-
             text-align: center;
         }
     </style>
