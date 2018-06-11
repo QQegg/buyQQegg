@@ -330,7 +330,7 @@
                                         <input type="hidden" name="Store_id" value="{{$store_name->id}}">
 
                                         <div class="write-review-comment-container">
-                                        <textarea name="content" style="resize:none; width:566px;height:100px;"
+                                        <textarea name="content" style="resize:none;"
                                                   class="review-input-text-box write-review-comment" maxlength=" 4096 "
                                                   placeholder="請寫下對本店的評論" aria-label="請寫下對本店的評論"></textarea>
                                         </div>
