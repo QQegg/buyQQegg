@@ -31,13 +31,15 @@
                 必須先入才可以留言喔!
             @else
                 @foreach($store_name_big as $store_name)
-                    <form style="float: left" class="delete" action="{{route('comdestroy',$comment_id)}}"
-                          method="post">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                        <input type="hidden" name="Store_id" value="{{$store_name->id}}">
-                        <input type="submit" class="btn btn-info" value="刪除評論">
-                    </form>
+                    @foreach($comment_id as $comment_id)
+                        <form style="float: left" class="delete" action="{{route('comdestroy',$comment_id)}}"
+                              method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                            <input type="hidden" name="Store_id" value="{{$store_name->id}}">
+                            <input type="submit" class="btn btn-info" value="刪除評論">
+                        </form>
+                    @endforeach
                 @endforeach
             @endif
             <br>
@@ -468,13 +470,15 @@
                         必須先入才可以留言喔!
                     @else
                         @foreach($store_name_big as $store_name)
-                            <form style="float: left" class="delete" action="{{route('comdestroy',$comment_id)}}"
-                                  method="post">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                                <input type="hidden" name="Store_id" value="{{$store_name->id}}">
-                                <input type="submit" class="btn btn-info" value="刪除評論">
-                            </form>
+                            @foreach($comment_id as $comment_id)
+                                <form style="float: left" class="delete" action="{{route('comdestroy',$comment_id)}}"
+                                      method="post">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                                    <input type="hidden" name="Store_id" value="{{$store_name->id}}">
+                                    <input type="submit" class="btn btn-info" value="刪除評論">
+                                </form>
+                            @endforeach
                         @endforeach
                     @endif
                     <br>
@@ -560,7 +564,7 @@
                         <span></span>
                     </div>
                 </div>
-            <div class="container" style="border-top-style:solid;">
+                <div class="container" style="border-top-style:solid;">
                     <ul>
                         <li>
                             <div> {{$comment->user_name}}</div>
@@ -582,7 +586,7 @@
                     </ul>
                     <br>
 
-            </div>
+                </div>
             @endforeach
         @endif
     </div>
